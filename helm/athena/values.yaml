@@ -5,3 +5,10 @@ image:
   repository: giantswarm/athena
   tag: "[[.Version]]"
   sha: "[[.SHA]]"
+
+Installation:
+  V1:
+    Guest:
+      Kubernetes:
+        API:
+          EndpointBase: ""
