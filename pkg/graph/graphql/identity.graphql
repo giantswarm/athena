@@ -1,0 +1,8 @@
+type Identity {
+  provider: String!
+  codename: String!
+}
+
+extend type Query {
+  identity: Identity!
+}

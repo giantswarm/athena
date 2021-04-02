@@ -1,0 +1,9 @@
+type Kubernetes {
+  apiUrl: String!
+  authUrl: String!
+  caCert: String!
+}
+
+extend type Query {
+  kubernetes: Kubernetes!
+}

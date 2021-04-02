@@ -12,6 +12,7 @@ import (
 	"go.uber.org/zap"
 
 	envFlags "github.com/giantswarm/athena/internal/flags"
+	"github.com/giantswarm/athena/pkg/server"
 )
 
 type runner struct {
@@ -41,6 +42,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 	var err error
 
 	{
+		// Get configuration.
 		r.viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 		r.viper.SetEnvPrefix(cmd.Root().Name())
 
@@ -58,6 +60,28 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 
 		f := envFlags.New()
 		err = r.viper.Unmarshal(f)
+		if err != nil {
+			return microerror.Mask(err)
+		}
+
+		// Set default values.
+		r.viper.SetDefault("server.listenAddress", ":8080")
+		r.viper.SetDefault("server.allowedOrigins", "*")
+	}
+
+	var s *server.Server
+	{
+		c := server.Config{
+			Log:           r.log,
+			ListenAddress: r.viper.GetString("server.listenAddress"),
+		}
+
+		s, err = server.New(c)
+		if err != nil {
+			return microerror.Mask(err)
+		}
+
+		err = s.Boot()
 		if err != nil {
 			return microerror.Mask(err)
 		}
