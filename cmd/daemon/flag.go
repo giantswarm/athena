@@ -5,18 +5,18 @@ import (
 )
 
 const (
-	flagAddress       = "address"
-	flagAllowedOrigin = "allowed-origin"
+	configDir  = "config-dir"
+	configFile = "config-file"
 )
 
 type flag struct {
-	Address        string
-	AllowedOrigins []string
+	ConfigDir  string
+	ConfigFile string
 }
 
 func (f *flag) Init(cmd *cobra.Command) {
-	cmd.PersistentFlags().StringVar(&f.Address, flagAddress, "0.0.0.0:8000", "Set the address that the application will run on.")
-	cmd.PersistentFlags().StringSliceVar(&f.AllowedOrigins, flagAllowedOrigin, []string{"*"}, "Set the allowed origin for connections.")
+	cmd.PersistentFlags().StringVar(&f.ConfigDir, configDir, ".", "")
+	cmd.PersistentFlags().StringVar(&f.ConfigFile, configFile, "config", "")
 }
 
 func (f *flag) Validate() error {

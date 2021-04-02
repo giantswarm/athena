@@ -6,12 +6,15 @@ import (
 
 	"github.com/giantswarm/microerror"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
 )
 
 type runner struct {
-	flag   *flag
-	log    *zap.SugaredLogger
+	flag  *flag
+	log   *zap.SugaredLogger
+	viper *viper.Viper
+
 	stdout io.Writer
 	stderr io.Writer
 }

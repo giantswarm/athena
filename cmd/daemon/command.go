@@ -6,6 +6,7 @@ import (
 
 	"github.com/giantswarm/microerror"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
 )
 
@@ -15,7 +16,8 @@ const (
 )
 
 type Config struct {
-	Log *zap.SugaredLogger
+	Log   *zap.SugaredLogger
+	Viper *viper.Viper
 
 	Stderr io.Writer
 	Stdout io.Writer
@@ -23,7 +25,10 @@ type Config struct {
 
 func New(config Config) (*cobra.Command, error) {
 	if config.Log == nil {
-		return nil, microerror.Maskf(invalidConfigError, "%T.Logger must not be empty", config)
+		return nil, microerror.Maskf(invalidConfigError, "%T.Log must not be empty", config)
+	}
+	if config.Viper == nil {
+		return nil, microerror.Maskf(invalidConfigError, "%T.Viper must not be empty", config)
 	}
 	if config.Stderr == nil {
 		config.Stderr = os.Stderr
@@ -37,6 +42,7 @@ func New(config Config) (*cobra.Command, error) {
 	r := &runner{
 		flag:   f,
 		log:    config.Log,
+		viper:  config.Viper,
 		stderr: config.Stderr,
 		stdout: config.Stdout,
 	}

@@ -5,6 +5,7 @@ import (
 
 	"github.com/giantswarm/microerror"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
@@ -53,7 +54,8 @@ func mainE(ctx context.Context) error {
 	var rootCommand *cobra.Command
 	{
 		c := cmd.Config{
-			Log: log,
+			Log:   log,
+			Viper: viper.New(),
 		}
 
 		rootCommand, err = cmd.New(c)
