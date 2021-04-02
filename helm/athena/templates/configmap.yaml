@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-configmap
+  namespace: giantswarm
+data:
+  config.yaml: |
+    server:
+      allowedOrigins:
+      - "{{ .Values.Installation.V1.GiantSwarm.Happa.Address }}"
+      listenAddress: "http://0.0.0.0:8000"
+    identity:
+      provider: "{{ .Values.Installation.V1.Provider.Kind }}"
+      codename: "{{ .Values.Installation.V1.Name }}"
+    kubernetes:
+      apiUrl: "{{ .Values.Installation.V1.Guest.Kubernetes.API.EndpointBase }}"
+      authUrl: "https://{{ .Values.Installation.V1.GiantSwarm.OIDC.IssuerAddress }}"
+      caCert: "{{ toYaml .Values.Installation.V1.Secret.Kubernetes.CAPem | indent 8 }}"

@@ -9,5 +9,5 @@ ADD ./athena /opt/athena
 
 USER giantswarm
 
-EXPOSE 7777
+EXPOSE 8000
 ENTRYPOINT ["/opt/athena"]

@@ -65,7 +65,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 		}
 
 		// Set default values.
-		r.viper.SetDefault("server.listenAddress", ":8080")
+		r.viper.SetDefault("server.listenAddress", ":8000")
 		r.viper.SetDefault("server.allowedOrigins", []string{"*"})
 	}
 

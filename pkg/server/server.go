@@ -5,11 +5,12 @@ import (
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
+	"github.com/giantswarm/microerror"
+	"go.uber.org/zap"
+
 	"github.com/giantswarm/athena/pkg/graph/generated"
 	"github.com/giantswarm/athena/pkg/graph/resolvers"
 	"github.com/giantswarm/athena/pkg/server/middleware"
-	"github.com/giantswarm/microerror"
-	"go.uber.org/zap"
 )
 
 type Config struct {

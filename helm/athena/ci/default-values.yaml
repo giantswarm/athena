@@ -1,0 +1,17 @@
+Installation:
+  V1:
+    GiantSwarm:
+      Happa:
+        Address: ""
+      OIDC:
+        IssuerAddress: ""
+    Guest:
+      Kubernetes:
+        API:
+          EndpointBase: ""
+    Name: ""
+    Provider:
+      Kind: ""
+    Secret:
+      Kubernetes:
+        CAPem: ""

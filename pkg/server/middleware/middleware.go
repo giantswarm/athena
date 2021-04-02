@@ -1,9 +1,10 @@
 package middleware
 
 import (
-	"github.com/giantswarm/athena/pkg/server/middleware/cors"
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
+
+	"github.com/giantswarm/athena/pkg/server/middleware/cors"
 )
 
 type Config struct {
@@ -45,7 +46,8 @@ func New(config Config) (*Middleware, error) {
 	m := &Middleware{
 		Cors: corsMiddleware,
 
-		log: config.Log,
+		log:            config.Log,
+		allowedOrigins: config.AllowedOrigins,
 	}
 
 	return m, nil

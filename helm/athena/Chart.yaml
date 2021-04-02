@@ -1,0 +1,7 @@
+apiVersion: v1
+name: athena
+namespace: athena
+description: TODO
+home: https://github.com/giantswarm/athena
+version: [[ .Version ]]
+appVersion: [[ .AppVersion ]]
