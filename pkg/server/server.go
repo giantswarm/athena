@@ -7,6 +7,7 @@ import (
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/giantswarm/athena/pkg/graph/generated"
 	"github.com/giantswarm/athena/pkg/graph/resolvers"
+	"github.com/giantswarm/athena/pkg/server/middleware"
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
 )
@@ -14,6 +15,7 @@ import (
 type Config struct {
 	Log *zap.SugaredLogger
 
+	AllowedOrigins         []string
 	ListenAddress          string
 	InstallationProvider   string
 	InstallationCodename   string
@@ -25,6 +27,7 @@ type Config struct {
 type Server struct {
 	log *zap.SugaredLogger
 
+	allowedOrigins         []string
 	listenAddress          string
 	installationProvider   string
 	installationCodename   string
@@ -37,12 +40,16 @@ func New(config Config) (*Server, error) {
 	if config.Log == nil {
 		return nil, microerror.Maskf(invalidConfigError, "%T.Log must not be empty", config)
 	}
+	if len(config.AllowedOrigins) < 1 {
+		return nil, microerror.Maskf(invalidConfigError, "%T.AllowedOrigins must not be empty", config)
+	}
 	if len(config.ListenAddress) < 1 {
 		return nil, microerror.Maskf(invalidConfigError, "%T.ListenAddress must not be empty", config)
 	}
 
 	s := &Server{
 		log:                    config.Log,
+		allowedOrigins:         config.AllowedOrigins,
 		listenAddress:          config.ListenAddress,
 		installationProvider:   config.InstallationProvider,
 		installationCodename:   config.InstallationCodename,
@@ -56,6 +63,18 @@ func New(config Config) (*Server, error) {
 
 func (s *Server) Boot() error {
 	var err error
+
+	var middlewareMap *middleware.Middleware
+	{
+		config := middleware.Config{
+			Log:            s.log,
+			AllowedOrigins: s.allowedOrigins,
+		}
+		middlewareMap, err = middleware.New(config)
+		if err != nil {
+			return microerror.Mask(err)
+		}
+	}
 
 	var rootResolver *resolvers.Resolver
 	{
@@ -83,8 +102,8 @@ func (s *Server) Boot() error {
 
 	mux := http.NewServeMux()
 	{
-		mux.Handle("/graphql", graphQLServer)
-		mux.Handle("/", playground.Handler("GraphQL playground", "/graphql"))
+		mux.Handle("/graphql", middlewareMap.Cors.Middleware(graphQLServer))
+		mux.Handle("/", middlewareMap.Cors.Middleware(playground.Handler("GraphQL playground", "/graphql")))
 	}
 
 	server := &http.Server{
