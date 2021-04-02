@@ -4,7 +4,9 @@ import (
 	"io"
 	"os"
 
+	"github.com/giantswarm/microerror"
 	"github.com/spf13/cobra"
+	"go.uber.org/zap"
 )
 
 const (
@@ -13,11 +15,16 @@ const (
 )
 
 type Config struct {
+	Log *zap.SugaredLogger
+
 	Stderr io.Writer
 	Stdout io.Writer
 }
 
 func New(config Config) (*cobra.Command, error) {
+	if config.Log == nil {
+		return nil, microerror.Maskf(invalidConfigError, "%T.Logger must not be empty", config)
+	}
 	if config.Stderr == nil {
 		config.Stderr = os.Stderr
 	}
@@ -29,6 +36,7 @@ func New(config Config) (*cobra.Command, error) {
 
 	r := &runner{
 		flag:   f,
+		log:    config.Log,
 		stderr: config.Stderr,
 		stdout: config.Stdout,
 	}
