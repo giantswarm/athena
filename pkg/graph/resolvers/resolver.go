@@ -10,10 +10,22 @@ import (
 
 type ResolverConfig struct {
 	Log *zap.SugaredLogger
+
+	InstallationProvider   string
+	InstallationCodename   string
+	InstallationK8sApiUrl  string
+	InstallationK8sAuthUrl string
+	InstallationK8sCaCert  string
 }
 
 type Resolver struct {
 	log *zap.SugaredLogger
+
+	installationProvider   string
+	installationCodename   string
+	installationK8sApiUrl  string
+	installationK8sAuthUrl string
+	installationK8sCaCert  string
 }
 
 func NewResolver(config ResolverConfig) (*Resolver, error) {
@@ -22,7 +34,12 @@ func NewResolver(config ResolverConfig) (*Resolver, error) {
 	}
 
 	r := &Resolver{
-		log: config.Log,
+		log:                    config.Log,
+		installationProvider:   config.InstallationProvider,
+		installationCodename:   config.InstallationCodename,
+		installationK8sApiUrl:  config.InstallationK8sApiUrl,
+		installationK8sAuthUrl: config.InstallationK8sAuthUrl,
+		installationK8sCaCert:  config.InstallationK8sCaCert,
 	}
 
 	return r, nil

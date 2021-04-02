@@ -11,7 +11,7 @@ import (
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 
-	envFlags "github.com/giantswarm/athena/internal/flags"
+	"github.com/giantswarm/athena/internal/config"
 	"github.com/giantswarm/athena/pkg/server"
 )
 
@@ -58,7 +58,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 			return microerror.Mask(err)
 		}
 
-		f := envFlags.New()
+		f := config.New()
 		err = r.viper.Unmarshal(f)
 		if err != nil {
 			return microerror.Mask(err)
@@ -72,8 +72,13 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 	var s *server.Server
 	{
 		c := server.Config{
-			Log:           r.log,
-			ListenAddress: r.viper.GetString("server.listenAddress"),
+			Log:                    r.log,
+			ListenAddress:          r.viper.GetString("server.listenAddress"),
+			InstallationProvider:   r.viper.GetString("identity.provider"),
+			InstallationCodename:   r.viper.GetString("identity.codename"),
+			InstallationK8sApiUrl:  r.viper.GetString("kubernetes.apiUrl"),
+			InstallationK8sAuthUrl: r.viper.GetString("kubernetes.authUrl"),
+			InstallationK8sCaCert:  r.viper.GetString("kubernetes.caCert"),
 		}
 
 		s, err = server.New(c)

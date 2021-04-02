@@ -1,4 +1,4 @@
-package flags
+package config
 
 type Server struct {
 	ListenAddress  string

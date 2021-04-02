@@ -11,9 +11,9 @@ import (
 
 func (r *queryResolver) Kubernetes(ctx context.Context) (*model.Kubernetes, error) {
 	k := &model.Kubernetes{
-		APIURL:  "",
-		AuthURL: "",
-		CaCert:  "",
+		APIURL:  r.Resolver.installationK8sApiUrl,
+		AuthURL: r.Resolver.installationK8sAuthUrl,
+		CaCert:  r.Resolver.installationK8sCaCert,
 	}
 
 	return k, nil

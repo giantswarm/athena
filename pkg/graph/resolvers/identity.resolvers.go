@@ -12,8 +12,8 @@ import (
 
 func (r *queryResolver) Identity(ctx context.Context) (*model.Identity, error) {
 	i := &model.Identity{
-		Provider: "",
-		Codename: "",
+		Provider: r.Resolver.installationProvider,
+		Codename: r.Resolver.installationCodename,
 	}
 
 	return i, nil
