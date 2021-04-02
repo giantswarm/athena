@@ -11,4 +11,7 @@ require (
 	go.uber.org/zap v1.16.0
 )
 
-replace github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
+replace (
+	github.com/coreos/etcd => github.com/etcd-io/etcd v3.3.25+incompatible
+	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
+)
