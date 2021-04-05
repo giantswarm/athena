@@ -37,3 +37,68 @@ workflows:
               only: /^v.*/
           requires:
             - push-athena-to-quay
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-shared-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "shared-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-aws-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "aws-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-azure-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "azure-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-kvm-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "kvm-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-vmware-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "vmware-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
