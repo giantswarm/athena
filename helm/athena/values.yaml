@@ -6,3 +6,7 @@ image:
   name: athena
   repository: giantswarm/athena
   tag: "[[.Version]]"
+Installation:
+  V1:
+    Registry:
+      Domain: quay.io
