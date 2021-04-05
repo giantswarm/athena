@@ -1,5 +1,5 @@
 name: athena
-namespace: athena
+namespace: giantswarm
 image:
   name: athena
   repository: giantswarm/athena
