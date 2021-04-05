@@ -15,5 +15,8 @@ Installation:
     Secret:
       Kubernetes:
         CAPem: ""
+      Registry:
+        PullSecret:
+          DockerConfigJSON: ""
     Registry:
       Domain: ""
