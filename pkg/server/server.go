@@ -9,7 +9,7 @@ import (
 	"go.uber.org/zap"
 
 	"github.com/giantswarm/athena/pkg/graph/generated"
-	"github.com/giantswarm/athena/pkg/graph/resolvers"
+	"github.com/giantswarm/athena/pkg/graph/resolver"
 	"github.com/giantswarm/athena/pkg/server/middleware"
 )
 
@@ -77,9 +77,9 @@ func (s *Server) Boot() error {
 		}
 	}
 
-	var rootResolver *resolvers.Resolver
+	var rootResolver *resolver.Resolver
 	{
-		config := resolvers.ResolverConfig{
+		config := resolver.ResolverConfig{
 			Log:                    s.log,
 			InstallationProvider:   s.installationProvider,
 			InstallationCodename:   s.installationCodename,
@@ -87,7 +87,7 @@ func (s *Server) Boot() error {
 			InstallationK8sAuthUrl: s.installationK8sAuthUrl,
 			InstallationK8sCaCert:  s.installationK8sCaCert,
 		}
-		rootResolver, err = resolvers.NewResolver(config)
+		rootResolver, err = resolver.NewResolver(config)
 		if err != nil {
 			return microerror.Mask(err)
 		}

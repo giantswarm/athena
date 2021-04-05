@@ -1,4 +1,4 @@
-package resolvers
+package resolver
 
 import (
 	"github.com/giantswarm/microerror"
