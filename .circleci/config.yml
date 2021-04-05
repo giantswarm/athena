@@ -28,8 +28,8 @@ workflows:
 
       - architect/push-to-app-catalog:
           name: "package and push"
-          app_catalog: "giantswarm-operations-platform-catalog"
-          app_catalog_test: "giantswarm-operations-platform-test-catalog"
+          app_catalog: "control-plane-catalog"
+          app_catalog_test: "control-plane-test-catalog"
           chart: "athena"
           # Trigger job on git tag.
           filters:
