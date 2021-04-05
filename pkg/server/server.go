@@ -104,7 +104,7 @@ func (s *Server) Boot() error {
 	mux := http.NewServeMux()
 	{
 		mux.Handle("/graphql", middlewareMap.Cors.Middleware(graphQLServer))
-		mux.Handle("/", middlewareMap.Cors.Middleware(playground.Handler("GraphQL playground", "/graphql")))
+		mux.Handle("/", playground.Handler("GraphQL playground", "/graphql"))
 	}
 
 	server := &http.Server{
