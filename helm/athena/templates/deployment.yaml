@@ -7,7 +7,7 @@ metadata:
     app: {{ .Values.name }}
 spec:
   replicas: 2
-  revisionHistoryLimit: 2
+  revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
   selector:
@@ -15,9 +15,10 @@ spec:
       app: {{ .Values.name }}
   template:
     metadata:
-      name: {{ .Values.name }}
       labels:
         app: {{ .Values.name }}
+      annotations:
+        releaseRevision: {{ .Release.Revision | quote }}
     spec:
       volumes:
       - name: athena-configmap
@@ -27,10 +28,11 @@ spec:
           - key: config.yaml
             path: config.yaml
       securityContext:
-        runAsUser: 1000
+        runAsUser: {{ .Values.userID }}
+        runAsGroup: {{ .Values.groupID }}
       containers:
       - name: {{ .Values.image.name }}
-        image: "quay.io/giantswarm/{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.Installation.V1.Registry.Domain }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: Always
         args:
         - "daemon"
@@ -49,15 +51,14 @@ spec:
         volumeMounts:
         - name: athena-configmap
           mountPath: /var/run/athena/configmap/
-        readOnly: true
+          readOnly: true
         livenessProbe:
           httpGet:
             path: /
             port: 8000
             scheme: HTTP
-          initialDelaySeconds: 10
-          periodSeconds: 30
-          timeoutSeconds: 2
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
         readinessProbe:
           httpGet:
             path: /
@@ -67,5 +68,16 @@ spec:
           timeoutSeconds: 1
       imagePullSecrets:
       - name: athena-pull-secret
-      serviceAccount: {{ .Values.name }}
       serviceAccountName: {{ .Values.name }}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                    - {{ .Values.name }}
+              topologyKey: kubernetes.io/hostname

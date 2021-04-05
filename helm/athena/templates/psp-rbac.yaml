@@ -21,7 +21,6 @@ spec:
     rule: MustRunAs
   volumes:
   - configMap
-  - emptyDir
 ---
 apiVersion: v1
 kind: ServiceAccount

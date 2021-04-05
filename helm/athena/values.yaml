@@ -1,5 +1,7 @@
 name: athena
 namespace: giantswarm
+userID: 1000
+groupID: 1000
 image:
   name: athena
   repository: giantswarm/athena
