@@ -15,3 +15,5 @@ Installation:
     Secret:
       Kubernetes:
         CAPem: ""
+    Registry:
+      Domain: ""
