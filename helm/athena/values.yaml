@@ -6,4 +6,3 @@ image:
   name: athena
   repository: giantswarm/athena
   tag: "[[.Version]]"
-  sha: "[[.SHA]]"

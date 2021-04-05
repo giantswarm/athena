@@ -4,6 +4,8 @@ kind: ConfigMap
 metadata:
   name: athena-configmap
   namespace: giantswarm
+  labels:
+    app: {{ .Values.name }}
 data:
   config.yaml: |
     server:
