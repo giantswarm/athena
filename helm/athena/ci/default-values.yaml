@@ -21,5 +21,8 @@ Installation:
       Registry:
         PullSecret:
           DockerConfigJSON: ""
+      Certificate:
+        GiantSwarm:
+          CrtPem: ""
     Registry:
       Domain: ""
