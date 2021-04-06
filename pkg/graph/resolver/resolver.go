@@ -3,6 +3,8 @@ package resolver
 import (
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
+
+	"github.com/giantswarm/athena/pkg/certificate"
 )
 
 //go:generate rm -rf generated
@@ -39,7 +41,7 @@ func NewResolver(config ResolverConfig) (*Resolver, error) {
 		installationCodename:   config.InstallationCodename,
 		installationK8sApiUrl:  config.InstallationK8sApiUrl,
 		installationK8sAuthUrl: config.InstallationK8sAuthUrl,
-		installationK8sCaCert:  config.InstallationK8sCaCert,
+		installationK8sCaCert:  certificate.Parse(config.InstallationK8sCaCert),
 	}
 
 	return r, nil
