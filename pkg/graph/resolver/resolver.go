@@ -1,6 +1,9 @@
 package resolver
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
 
@@ -39,10 +42,18 @@ func NewResolver(config ResolverConfig) (*Resolver, error) {
 		log:                    config.Log,
 		installationProvider:   config.InstallationProvider,
 		installationCodename:   config.InstallationCodename,
-		installationK8sApiUrl:  config.InstallationK8sApiUrl,
-		installationK8sAuthUrl: config.InstallationK8sAuthUrl,
+		installationK8sApiUrl:  formatUrl(config.InstallationK8sApiUrl),
+		installationK8sAuthUrl: formatUrl(config.InstallationK8sAuthUrl),
 		installationK8sCaCert:  certificate.Parse(config.InstallationK8sCaCert),
 	}
 
 	return r, nil
+}
+
+func formatUrl(url string) string {
+	if !strings.HasPrefix(url, "http") {
+		return fmt.Sprintf("https://%s", url)
+	}
+
+	return url
 }
