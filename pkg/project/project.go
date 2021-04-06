@@ -1,7 +1,7 @@
 package project
 
 var (
-	description = "TODO"
+	description = "A service that knows everything about your installation"
 	gitSHA      = "n/a"
 	name        = "athena"
 	source      = "https://github.com/giantswarm/athena"
