@@ -10,7 +10,7 @@ data:
     server:
       allowedOrigins:
       - "{{ .Values.Installation.V1.GiantSwarm.Happa.Address }}"
-      listenAddress: "http://0.0.0.0:8000"
+      listenAddress: "0.0.0.0:8000"
     identity:
       provider: "{{ .Values.Installation.V1.Provider.Kind }}"
       codename: "{{ .Values.Installation.V1.Name }}"
