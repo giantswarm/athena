@@ -24,5 +24,7 @@ Installation:
       Certificate:
         GiantSwarm:
           CrtPem: ""
+          KeyPem: ""
+          CAPem: ""
     Registry:
       Domain: ""
