@@ -21,9 +21,9 @@ spec:
         releaseRevision: {{ .Release.Revision | quote }}
     spec:
       volumes:
-      - name: athena-configmap
+      - name: "{{ .Values.name }}-configmap"
         configMap:
-          name: athena-configmap
+          name: "{{ .Values.name }}-configmap"
           items:
           - key: config.yaml
             path: config.yaml
@@ -49,7 +49,7 @@ spec:
             cpu: 250m
             memory: 250Mi
         volumeMounts:
-        - name: athena-configmap
+        - name: "{{ .Values.name }}-configmap"
           mountPath: /var/run/athena/configmap/
           readOnly: true
         livenessProbe:
@@ -67,7 +67,7 @@ spec:
           initialDelaySeconds: 30
           timeoutSeconds: 1
       imagePullSecrets:
-      - name: athena-pull-secret
+      - name: "{{ .Values.name }}-pull-secret"
       serviceAccountName: {{ .Values.name }}
       affinity:
         podAntiAffinity:

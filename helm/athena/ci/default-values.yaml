@@ -3,6 +3,10 @@ Installation:
     GiantSwarm:
       Happa:
         Address: ""
+      Athena:
+        Address: ""
+        Host: ""
+        Letsencrypt: ""
       OIDC:
         IssuerAddress: ""
     Kubernetes:

@@ -6,13 +6,13 @@ metadata:
   labels:
     app: {{ .Values.name }}
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
     kubernetes.io/ingress.class: nginx
+    {{- if .Values.Installation.V1.GiantSwarm.Athena.Letsencrypt }}
     kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    {{- end }}
 spec:
   rules:
-  - host: "athena.{{ .Values.Installation.V1.Kubernetes.API.Address }}"
+  - host: {{ .Values.Installation.V1.GiantSwarm.Athena.Host }}
     http:
       paths:
       - path: /
@@ -21,5 +21,9 @@ spec:
           servicePort: 8000
   tls:
   - hosts:
-    - athena.{{ .Values.Installation.V1.Kubernetes.API.Address }}
+    - {{ .Values.Installation.V1.GiantSwarm.Athena.Host }}
+    {{- if .Values.Installation.V1.GiantSwarm.Athena.Letsencrypt }}
     secretName: {{ .Values.name }}
+    {{- else }}
+    secretName: "{{ .Values.name }}-certs-secret"
+    {{- end }}
