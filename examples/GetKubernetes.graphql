@@ -1,0 +1,7 @@
+query GetKubernetes {
+  kubernetes {
+    apiUrl
+    authUrl
+    caCert
+  }
+}

@@ -1,0 +1,6 @@
+query GetIdentity {
+  identity {
+    provider
+    codename
+  }
+}
