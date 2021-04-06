@@ -8,7 +8,7 @@ import (
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
 
-	"github.com/giantswarm/athena/pkg/graph/generated"
+	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/resolver"
 	"github.com/giantswarm/athena/pkg/server/middleware"
 )
@@ -95,7 +95,7 @@ func (s *Server) Boot() error {
 
 	var graphQLServer *handler.Server
 	{
-		schema := generated.NewExecutableSchema(generated.Config{
+		schema := exec.NewExecutableSchema(exec.Config{
 			Resolvers: rootResolver,
 		})
 		graphQLServer = handler.NewDefaultServer(schema)
