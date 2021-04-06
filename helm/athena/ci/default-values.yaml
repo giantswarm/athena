@@ -5,10 +5,9 @@ Installation:
         Address: ""
       OIDC:
         IssuerAddress: ""
-    Guest:
-      Kubernetes:
-        API:
-          EndpointBase: ""
+    Kubernetes:
+      API:
+        Address: ""
     Name: ""
     Provider:
       Kind: ""

@@ -15,6 +15,6 @@ data:
       provider: "{{ .Values.Installation.V1.Provider.Kind }}"
       codename: "{{ .Values.Installation.V1.Name }}"
     kubernetes:
-      apiUrl: "{{ .Values.Installation.V1.Guest.Kubernetes.API.EndpointBase }}"
+      apiUrl: "{{ .Values.Installation.V1.Kubernetes.API.Address }}"
       authUrl: "https://{{ .Values.Installation.V1.GiantSwarm.OIDC.IssuerAddress }}"
       caCert: "{{ toYaml .Values.Installation.V1.Secret.Kubernetes.CAPem | indent 8 }}"
