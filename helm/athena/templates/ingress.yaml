@@ -17,7 +17,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: athena-service
+          serviceName: {{ .Values.name }}
           servicePort: 8000
   tls:
   - hosts:
