@@ -8,7 +8,7 @@ import (
 )
 
 //go:generate rm -rf generated
-//go:generate go run github.com/99designs/gqlgen
+//go:generate go run ../../../scripts/gqlgen
 
 type ResolverConfig struct {
 	Log *zap.SugaredLogger
