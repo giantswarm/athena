@@ -33,7 +33,7 @@ func mainE(ctx context.Context) error {
 				LevelKey:       "level",
 				NameKey:        "logger",
 				CallerKey:      "caller",
-				FunctionKey:    "func",
+				FunctionKey:    zapcore.OmitKey,
 				MessageKey:     "message",
 				StacktraceKey:  zapcore.OmitKey,
 				LineEnding:     zapcore.DefaultLineEnding,
