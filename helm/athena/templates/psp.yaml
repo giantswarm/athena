@@ -25,3 +25,4 @@ spec:
     rule: RunAsAny
   volumes:
   - configMap
+  - secret
