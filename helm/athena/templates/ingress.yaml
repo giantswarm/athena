@@ -22,8 +22,4 @@ spec:
   tls:
   - hosts:
     - {{ .Values.Installation.V1.GiantSwarm.Athena.Host }}
-    {{- if .Values.Installation.V1.GiantSwarm.Athena.Letsencrypt }}
-    secretName: {{ .Values.name }}
-    {{- else }}
     secretName: "{{ .Values.name }}-certs-secret"
-    {{- end }}

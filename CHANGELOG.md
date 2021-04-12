@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add network policy template.
+
 ## [1.0.0] - 2021-04-12
 
 - First release.
