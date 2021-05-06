@@ -26,5 +26,15 @@ Installation:
           CrtPem: ""
           KeyPem: ""
           CAPem: ""
+    Security:
+      Subnet:
+        Others: ""
+        VPN: ""
+        Customer:
+          Private: ""
+          Public: ""
+      RestrictAccess:
+        GuestAPI:
+          Public: false
     Registry:
       Domain: ""
