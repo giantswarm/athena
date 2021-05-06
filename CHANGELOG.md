@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add support for CIDR whitelisting in the ingress template.
+
 ## [1.0.1] - 2021-04-12
 
 ### Added
