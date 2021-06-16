@@ -14,7 +14,7 @@ ingress:
     keyPemB64: ""
 
 kubernetes:
-  caPemB64: ""
+  caPem: ""
   api:
     address: ""
 
