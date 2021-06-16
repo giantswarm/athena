@@ -9,12 +9,12 @@ data:
   config.yaml: |
     server:
       allowedOrigins:
-      - "{{ .Values.Installation.V1.GiantSwarm.Happa.Address }}"
+      - "{{ .Values.services.happa.address }}"
       listenAddress: "0.0.0.0:8000"
     identity:
-      provider: "{{ .Values.Installation.V1.Provider.Kind }}"
-      codename: "{{ .Values.Installation.V1.Name }}"
+      provider: "{{ .Values.provider.kind }}"
+      codename: "{{ .Values.managementCluster.name }}"
     kubernetes:
-      apiUrl: "{{ .Values.Installation.V1.Kubernetes.API.Address }}"
-      authUrl: "{{ .Values.Installation.V1.GiantSwarm.OIDC.IssuerAddress }}"
-      caCert: "{{ toYaml .Values.Installation.V1.Secret.Kubernetes.CAPem | indent 8 }}"
+      apiUrl: "{{ .Values.kubernetes.api.address }}"
+      authUrl: "{{ .Values.oidc.issuerAddress }}"
+      caCert: "{{ toYaml .Values.kubernetes.caPemB64 | b64dec | indent 8 }}"
