@@ -6,7 +6,46 @@ image:
   name: athena
   repository: giantswarm/athena
   tag: "[[.Version]]"
-Installation:
-  V1:
-    Registry:
-      Domain: quay.io
+
+ingress:
+  tls:
+    caPemB64: ""
+    crtPemB64: ""
+    keyPemB64: ""
+
+kubernetes:
+  caPem: ""
+  api:
+    address: ""
+
+managementCluster:
+  name: ""
+
+oidc:
+  issuerAddress: issuer.foo.bar
+
+provider:
+  kind: ""
+
+security:
+  subnet:
+    vpn: ""
+    customer:
+      public: ""
+      private: ""
+    restrictAccess:
+      gsAPI: false
+
+services:
+  happa:
+    address: ""
+  athena:
+    address: ""
+    host: ""
+    letsencrypt: true
+
+# generic configuration
+registry:
+  domain: docker.io
+  pullSecret:
+    dockerConfigJSON: ""

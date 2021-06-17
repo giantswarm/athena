@@ -4,3 +4,5 @@ description: "A service that knows everything about your installation"
 home: https://github.com/giantswarm/athena
 version: [[ .Version ]]
 appVersion: [[ .AppVersion ]]
+annotations:
+  config.giantswarm.io/version: 1.x.x
