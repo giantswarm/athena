@@ -9,7 +9,7 @@ require (
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.8.0
 	github.com/vektah/gqlparser/v2 v2.2.0
-	go.uber.org/zap v1.17.0
+	go.uber.org/zap v1.18.1
 )
 
 replace (
