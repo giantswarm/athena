@@ -14,5 +14,6 @@ require (
 
 replace (
 	github.com/coreos/etcd => github.com/etcd-io/etcd v3.3.25+incompatible
+	github.com/dgrijalva/jwt-go => github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 )
