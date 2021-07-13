@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prepare helm values to configuration management.
 - Update architect-orb to v3.0.0.
 
+### Fixed
+
+- Fix jwt-go failing dependency.
+
 ## [1.1.0] - 2021-05-06
 
 ### Added
