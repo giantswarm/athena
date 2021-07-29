@@ -23,6 +23,7 @@ type Config struct {
 	InstallationK8sApiUrl  string
 	InstallationK8sAuthUrl string
 	InstallationK8sCaCert  string
+	AvailabilityZones      []string
 }
 
 type Server struct {
@@ -35,6 +36,7 @@ type Server struct {
 	installationK8sApiUrl  string
 	installationK8sAuthUrl string
 	installationK8sCaCert  string
+	availabilityZones      []string
 }
 
 func New(config Config) (*Server, error) {
@@ -57,6 +59,7 @@ func New(config Config) (*Server, error) {
 		installationK8sApiUrl:  config.InstallationK8sApiUrl,
 		installationK8sAuthUrl: config.InstallationK8sAuthUrl,
 		installationK8sCaCert:  config.InstallationK8sCaCert,
+		availabilityZones:      config.AvailabilityZones,
 	}
 
 	return s, nil
@@ -86,6 +89,7 @@ func (s *Server) Boot() error {
 			InstallationK8sApiUrl:  s.installationK8sApiUrl,
 			InstallationK8sAuthUrl: s.installationK8sAuthUrl,
 			InstallationK8sCaCert:  s.installationK8sCaCert,
+			AvailabilityZones:      s.availabilityZones,
 		}
 		rootResolver, err = resolver.NewResolver(config)
 		if err != nil {

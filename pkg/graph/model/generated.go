@@ -2,6 +2,10 @@
 
 package model
 
+type Capabilities struct {
+	AvailabilityZones []string `json:"availabilityZones"`
+}
+
 type Identity struct {
 	Provider string `json:"provider"`
 	Codename string `json:"codename"`

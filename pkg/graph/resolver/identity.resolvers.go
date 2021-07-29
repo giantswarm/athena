@@ -6,7 +6,6 @@ package resolver
 import (
 	"context"
 
-	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/model"
 )
 
@@ -18,8 +17,3 @@ func (r *queryResolver) Identity(ctx context.Context) (*model.Identity, error) {
 
 	return i, nil
 }
-
-// Query returns exec.QueryResolver implementation.
-func (r *Resolver) Query() exec.QueryResolver { return &queryResolver{r} }
-
-type queryResolver struct{ *Resolver }

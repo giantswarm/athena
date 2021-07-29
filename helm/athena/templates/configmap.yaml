@@ -18,3 +18,10 @@ data:
       apiUrl: "{{ .Values.kubernetes.api.address }}"
       authUrl: "{{ .Values.oidc.issuerAddress }}"
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
+    {{- if .Values.provider.availabilityZones }}
+    capabilities:
+      availabilityZones:
+      {{- range .Values.provider.availabilityZones }}
+      - {{ . | quote }}
+      {{- end }}
+    {{- end }}

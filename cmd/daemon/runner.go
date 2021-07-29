@@ -80,6 +80,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 			InstallationK8sApiUrl:  r.viper.GetString("kubernetes.apiUrl"),
 			InstallationK8sAuthUrl: r.viper.GetString("kubernetes.authUrl"),
 			InstallationK8sCaCert:  r.viper.GetString("kubernetes.caCert"),
+			AvailabilityZones:      r.viper.GetStringSlice("capabilities.availabilityZones"),
 		}
 
 		s, err = server.New(c)

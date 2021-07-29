@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add new `Capabilities` field containing environment capabilities. For now it only contains availability zones.
+
 ## [1.2.0] - 2021-07-13
 
 ### Changed

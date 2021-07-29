@@ -1,0 +1,7 @@
+type Capabilities {
+  availabilityZones: [String!]!
+}
+
+extend type Query {
+  capabilities: Capabilities!
+}
