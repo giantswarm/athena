@@ -44,6 +44,13 @@ services:
     host: ""
     letsencrypt: true
 
+analytics:
+  environmentType: ""
+  credentialsJSON: ""
+
+secret:
+  firestoreServiceAccountKey: ""
+
 # generic configuration
 registry:
   domain: docker.io
