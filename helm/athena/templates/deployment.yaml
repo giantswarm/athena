@@ -27,6 +27,12 @@ spec:
           items:
           - key: config.yaml
             path: config.yaml
+      - name: "{{ .Values.name }}-secret"
+        secret:
+          secretName: "{{ .Values.name }}-secret"
+          items:
+          - key: secret.yaml
+            path: secret.yaml
       securityContext:
         runAsUser: {{ .Values.userID }}
         runAsGroup: {{ .Values.groupID }}
@@ -36,8 +42,10 @@ spec:
         imagePullPolicy: Always
         args:
         - "daemon"
-        - "--config-dir=/var/run/athena/configmap/"
+        - "--config-dir=/var/run/{{ .Values.name }}/configmap/"
         - "--config-file=config"
+        - "--secret-dir=/var/run/{{ .Values.name }}/secret/"
+        - "--secret-file=secret"
         ports:
         - containerPort: 8000
           name: http
@@ -50,7 +58,10 @@ spec:
             memory: 250Mi
         volumeMounts:
         - name: "{{ .Values.name }}-configmap"
-          mountPath: /var/run/athena/configmap/
+          mountPath: "/var/run/{{ .Values.name }}/configmap/"
+          readOnly: true
+        - name: "{{ .Values.name }}-secret"
+          mountPath: "/var/run/{{ .Values.name }}/secret/"
           readOnly: true
         livenessProbe:
           httpGet:

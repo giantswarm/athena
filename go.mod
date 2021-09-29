@@ -3,6 +3,8 @@ module github.com/giantswarm/athena
 go 1.16
 
 require (
+	cloud.google.com/go/firestore v1.1.0
+	firebase.google.com/go v3.13.0+incompatible
 	github.com/99designs/gqlgen v0.14.0
 	github.com/giantswarm/microerror v0.3.0
 	github.com/google/go-cmp v0.5.6
@@ -10,6 +12,7 @@ require (
 	github.com/spf13/viper v1.8.1
 	github.com/vektah/gqlparser/v2 v2.2.0
 	go.uber.org/zap v1.19.1
+	google.golang.org/api v0.44.0
 )
 
 replace (

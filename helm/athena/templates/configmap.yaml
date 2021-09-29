@@ -18,3 +18,5 @@ data:
       apiUrl: "{{ .Values.kubernetes.api.address }}"
       authUrl: "{{ .Values.oidc.issuerAddress }}"
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
+    analytics:
+      environmentType: {{ .Values.environmentType}}
