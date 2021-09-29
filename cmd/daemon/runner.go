@@ -43,18 +43,15 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 
 	{
 		// Get configuration.
-		r.viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
-		r.viper.SetEnvPrefix(cmd.Root().Name())
+		setViperDefaults(r.viper, cmd)
 
-		r.viper.AddConfigPath(r.flag.ConfigDir)
-		r.viper.SetConfigName(r.flag.ConfigFile)
+		err = r.readConfig(cmd, r.flag.ConfigDir, r.flag.ConfigFile)
+		if err != nil {
+			return microerror.Mask(err)
+		}
 
-		r.viper.AutomaticEnv()
-
-		err = r.viper.ReadInConfig()
-		if errors.As(err, &viper.ConfigFileNotFoundError{}) {
-			// Ignore error, we can use defaults.
-		} else if err != nil {
+		err = r.readConfig(cmd, r.flag.SecretDir, r.flag.SecretFile)
+		if err != nil {
 			return microerror.Mask(err)
 		}
 
@@ -72,14 +69,16 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 	var s *server.Server
 	{
 		c := server.Config{
-			Log:                    r.log,
-			AllowedOrigins:         r.viper.GetStringSlice("server.allowedOrigins"),
-			ListenAddress:          r.viper.GetString("server.listenAddress"),
-			InstallationProvider:   r.viper.GetString("identity.provider"),
-			InstallationCodename:   r.viper.GetString("identity.codename"),
-			InstallationK8sApiUrl:  r.viper.GetString("kubernetes.apiUrl"),
-			InstallationK8sAuthUrl: r.viper.GetString("kubernetes.authUrl"),
-			InstallationK8sCaCert:  r.viper.GetString("kubernetes.caCert"),
+			Log:                      r.log,
+			AllowedOrigins:           r.viper.GetStringSlice("server.allowedOrigins"),
+			ListenAddress:            r.viper.GetString("server.listenAddress"),
+			InstallationProvider:     r.viper.GetString("identity.provider"),
+			InstallationCodename:     r.viper.GetString("identity.codename"),
+			InstallationK8sApiUrl:    r.viper.GetString("kubernetes.apiUrl"),
+			InstallationK8sAuthUrl:   r.viper.GetString("kubernetes.authUrl"),
+			InstallationK8sCaCert:    r.viper.GetString("kubernetes.caCert"),
+			AnalyticsEnv:             r.viper.GetString("analytics.environmentType"),
+			AnalyticsCredentialsJSON: r.viper.GetString("analytics.credentialsJSON"),
 		}
 
 		s, err = server.New(c)
@@ -94,4 +93,32 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 	}
 
 	return nil
+}
+
+func (r *runner) readConfig(cmd *cobra.Command, dir string, file string) error {
+	v := viper.New()
+
+	setViperDefaults(v, cmd)
+
+	v.AddConfigPath(dir)
+	v.SetConfigName(file)
+
+	err := v.ReadInConfig()
+	if errors.As(err, &viper.ConfigFileNotFoundError{}) {
+		// Ignore error, we can use defaults.
+	} else if err != nil {
+		return microerror.Mask(err)
+	}
+
+	for _, k := range v.AllKeys() {
+		r.viper.Set(k, v.Get(k))
+	}
+
+	return nil
+}
+
+func setViperDefaults(viperInstance *viper.Viper, cmd *cobra.Command) {
+	viperInstance.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	viperInstance.SetEnvPrefix(cmd.Root().Name())
+	viperInstance.AutomaticEnv()
 }

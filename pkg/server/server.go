@@ -8,6 +8,7 @@ import (
 	"github.com/giantswarm/microerror"
 	"go.uber.org/zap"
 
+	"github.com/giantswarm/athena/pkg/analytics"
 	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/resolver"
 	"github.com/giantswarm/athena/pkg/server/middleware"
@@ -16,25 +17,29 @@ import (
 type Config struct {
 	Log *zap.SugaredLogger
 
-	AllowedOrigins         []string
-	ListenAddress          string
-	InstallationProvider   string
-	InstallationCodename   string
-	InstallationK8sApiUrl  string
-	InstallationK8sAuthUrl string
-	InstallationK8sCaCert  string
+	AllowedOrigins           []string
+	ListenAddress            string
+	InstallationProvider     string
+	InstallationCodename     string
+	InstallationK8sApiUrl    string
+	InstallationK8sAuthUrl   string
+	InstallationK8sCaCert    string
+	AnalyticsEnv             string
+	AnalyticsCredentialsJSON string
 }
 
 type Server struct {
 	log *zap.SugaredLogger
 
-	allowedOrigins         []string
-	listenAddress          string
-	installationProvider   string
-	installationCodename   string
-	installationK8sApiUrl  string
-	installationK8sAuthUrl string
-	installationK8sCaCert  string
+	allowedOrigins           []string
+	listenAddress            string
+	installationProvider     string
+	installationCodename     string
+	installationK8sApiUrl    string
+	installationK8sAuthUrl   string
+	installationK8sCaCert    string
+	analyticsEnv             string
+	analyticsCredentialsJSON string
 }
 
 func New(config Config) (*Server, error) {
@@ -49,14 +54,16 @@ func New(config Config) (*Server, error) {
 	}
 
 	s := &Server{
-		log:                    config.Log,
-		allowedOrigins:         config.AllowedOrigins,
-		listenAddress:          config.ListenAddress,
-		installationProvider:   config.InstallationProvider,
-		installationCodename:   config.InstallationCodename,
-		installationK8sApiUrl:  config.InstallationK8sApiUrl,
-		installationK8sAuthUrl: config.InstallationK8sAuthUrl,
-		installationK8sCaCert:  config.InstallationK8sCaCert,
+		log:                      config.Log,
+		allowedOrigins:           config.AllowedOrigins,
+		listenAddress:            config.ListenAddress,
+		installationProvider:     config.InstallationProvider,
+		installationCodename:     config.InstallationCodename,
+		installationK8sApiUrl:    config.InstallationK8sApiUrl,
+		installationK8sAuthUrl:   config.InstallationK8sAuthUrl,
+		installationK8sCaCert:    config.InstallationK8sCaCert,
+		analyticsEnv:             config.AnalyticsEnv,
+		analyticsCredentialsJSON: config.AnalyticsCredentialsJSON,
 	}
 
 	return s, nil
@@ -77,10 +84,25 @@ func (s *Server) Boot() error {
 		}
 	}
 
+	var analyticsReporter *analytics.Analytics
+	{
+		c := analytics.Config{
+			Log:             s.log,
+			CredentialsJSON: s.analyticsCredentialsJSON,
+			Environment:     s.analyticsEnv,
+		}
+
+		analyticsReporter, err = analytics.New(c)
+		if err != nil {
+			return microerror.Mask(err)
+		}
+	}
+
 	var rootResolver *resolver.Resolver
 	{
 		config := resolver.ResolverConfig{
 			Log:                    s.log,
+			Analytics:              analyticsReporter,
 			InstallationProvider:   s.installationProvider,
 			InstallationCodename:   s.installationCodename,
 			InstallationK8sApiUrl:  s.installationK8sApiUrl,
