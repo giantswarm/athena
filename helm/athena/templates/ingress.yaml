@@ -1,4 +1,4 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.name }}
@@ -20,9 +20,12 @@ spec:
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
-          serviceName: {{ .Values.name }}
-          servicePort: 8000
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: 8000
   tls:
   - hosts:
     - {{ .Values.services.athena.host }}
