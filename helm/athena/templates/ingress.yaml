@@ -8,6 +8,7 @@ metadata:
   annotations:
     {{- if .Values.services.athena.letsencrypt}}
     kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-giantswarm"
     {{- end }}
 
     {{- if .Values.security.subnet.restrictAccess.gsAPI }}
