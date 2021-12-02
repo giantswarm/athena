@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated Ingress resources in helm chart. This drops support for Kubernetes < 1.19.
+- Updated Ingress resources in helm chart.
 
 ## [1.4.0] - 2021-09-29
 

@@ -1,4 +1,8 @@
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
 apiVersion: networking.k8s.io/v1
+{{- else }}
+apiVersion: networking.k8s.io/v1beta1
+{{- end }}
 kind: Ingress
 metadata:
   name: {{ .Values.name }}
@@ -23,10 +27,15 @@ spec:
       - path: /
         pathType: ImplementationSpecific
         backend:
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
           service:
             name: {{ .Values.name }}
             port:
               number: 8000
+{{- else }}
+          serviceName: {{ .Values.name }}
+          servicePort: 8000
+{{- end }}
   tls:
   - hosts:
     - {{ .Values.services.athena.host }}
