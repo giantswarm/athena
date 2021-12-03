@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Updated Ingress resources in helm chart.
+- Add workaround for Chart upgrade not working when not using lets encrypt due to changed secret type.
 
 ## [1.4.0] - 2021-09-29
 
