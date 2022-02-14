@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix RBAC rule for fix secret job.
+
 ## [1.5.1] - 2022-02-14
 
 - No changes compared to v1.5.0.
