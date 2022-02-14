@@ -16,7 +16,7 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - secret
+  - secrets
   verbs:
   - list
   - delete
