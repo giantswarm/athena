@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/firestore v1.6.0
 	firebase.google.com/go v3.13.0+incompatible
 	github.com/99designs/gqlgen v0.14.0
-	github.com/giantswarm/microerror v0.3.0
+	github.com/giantswarm/microerror v0.4.0
 	github.com/google/go-cmp v0.5.6
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
