@@ -51,6 +51,7 @@ func New(config Config) (*Analytics, error) {
 	a := &Analytics{
 		log:             config.Log,
 		firestoreClient: firestoreClient,
+		environment:     config.Environment,
 	}
 
 	return a, nil
