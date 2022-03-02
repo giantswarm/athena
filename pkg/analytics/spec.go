@@ -23,6 +23,8 @@ type Reporter interface {
 	Report(ctx context.Context, event Event) (Event, error)
 }
 
+// CollectionName creates a firestore collection name
+// based on the year, month, and environment type (stable, testing).
 func (e *Event) CollectionName() string {
 	envClass := strings.ToLower(e.EnvironmentClass)
 

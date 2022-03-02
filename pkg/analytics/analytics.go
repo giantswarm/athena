@@ -92,7 +92,7 @@ func (a *Analytics) validateEvent(e Event) error {
 }
 
 func (a *Analytics) applyDefaultsToEvent(e Event) Event {
-	if len(e.EnvironmentClass) < 1 {
+	if e.EnvironmentClass == "" {
 		e.EnvironmentClass = a.environment
 	}
 
