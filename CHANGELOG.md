@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fix Firestore collection name used for writing RUM data.
+
 ## [1.5.2] - 2022-02-14
 
 ### Fixed
