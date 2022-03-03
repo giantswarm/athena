@@ -51,6 +51,7 @@ func New(config Config) (*Analytics, error) {
 	a := &Analytics{
 		log:             config.Log,
 		firestoreClient: firestoreClient,
+		environment:     config.Environment,
 	}
 
 	return a, nil
@@ -91,7 +92,7 @@ func (a *Analytics) validateEvent(e Event) error {
 }
 
 func (a *Analytics) applyDefaultsToEvent(e Event) Event {
-	if len(e.EnvironmentClass) < 1 {
+	if e.EnvironmentClass == "" {
 		e.EnvironmentClass = a.environment
 	}
 
