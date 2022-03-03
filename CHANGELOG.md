@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.3] - 2022-03-03
+
 ### Fixed
 
 - Fix Firestore collection name used for writing RUM data.
@@ -78,7 +80,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.5.2...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.5.3...HEAD
+[1.5.3]: https://github.com/giantswarm/athena/compare/v1.5.2...v1.5.3
 [1.5.2]: https://github.com/giantswarm/athena/compare/v1.5.1...v1.5.2
 [1.5.1]: https://github.com/giantswarm/athena/compare/v1.5.0...v1.5.1
 [1.5.0]: https://github.com/giantswarm/athena/compare/v1.4.0...v1.5.0
