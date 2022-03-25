@@ -104,10 +104,10 @@ workflows:
               only: /^v.*/
 
       - architect/push-to-app-collection:
-          name: push-athena-to-vmware-app-collection
+          name: push-athena-to-vsphere-app-collection
           context: architect
           app_name: "athena"
-          app_collection_repo: "vmware-app-collection"
+          app_collection_repo: "vsphere-app-collection"
           requires:
             - push-athena-to-control-plane-app-catalog
           filters:
