@@ -56,7 +56,4 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
-replace (
-	github.com/coreos/etcd => github.com/etcd-io/etcd v3.5.2+incompatible
-	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
-)
+replace github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
