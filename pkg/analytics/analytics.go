@@ -29,7 +29,8 @@ func New(config Config) (*Analytics, error) {
 		return nil, microerror.Maskf(invalidConfigError, "%T.Log must not be empty", config)
 	}
 	if len(config.CredentialsJSON) < 1 {
-		return nil, microerror.Maskf(invalidConfigError, "%T.CredentialsJSON must not be empty", config)
+		config.Log.Debugf("%T.CredentialsJSON is empty. Skipping analytics setup.", config)
+		return nil, nil
 	}
 
 	var firestoreClient *firestore.Client
