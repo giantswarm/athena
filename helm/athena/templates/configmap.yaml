@@ -13,7 +13,11 @@ data:
       listenAddress: "0.0.0.0:8000"
     identity:
       provider: "{{ .Values.provider.kind }}"
+      {{- if .Values.managementCluster.name }}
       codename: "{{ .Values.managementCluster.name }}"
+      {{- else }}
+      codename: "{{ .Values.clusterID }}"
+      {{- end }}
     kubernetes:
       {{- if .Values.kubernetes.api.address }}
       apiUrl: "{{ .Values.kubernetes.api.address }}"
