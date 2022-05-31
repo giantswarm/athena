@@ -56,6 +56,8 @@ secret:
 # generic configuration
 registry:
   domain: docker.io
+  pullSecret:
+    dockerConfigJSON: ""
 
 # Job installed by Helm hook to work
 # around type field being immutable
