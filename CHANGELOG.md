@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Allow missing `firestoreServiceAccountKey`.
+- Make changes to helm chart for deployment on WCs.
 
 ## [1.5.4] - 2022-03-31
 
