@@ -21,7 +21,11 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
+  {{- if .Values.services.athena.host }}
   - host: {{ .Values.services.athena.host }}
+  {{- else }}
+  - host: athena.{{ .Values.baseDomain }}
+  {{- end }}
     http:
       paths:
       - path: /
@@ -38,5 +42,9 @@ spec:
 {{- end }}
   tls:
   - hosts:
+    {{- if .Values.services.athena.host }}
     - {{ .Values.services.athena.host }}
+    {{- else }}
+    - athena.{{ .Values.baseDomain }}
+    {{- end }}
     secretName: "{{ .Values.name }}-certs-secret"

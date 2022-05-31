@@ -15,8 +15,16 @@ data:
       provider: "{{ .Values.provider.kind }}"
       codename: "{{ .Values.managementCluster.name }}"
     kubernetes:
+      {{- if .Values.kubernetes.api.address }}
       apiUrl: "{{ .Values.kubernetes.api.address }}"
+      {{- else }}
+      apiUrl: "https://api.{{ .Values.baseDomain }}"
+      {{- end }}
+      {{- if .Values.oidc.issuerAddress }}
       authUrl: "{{ .Values.oidc.issuerAddress }}"
+      {{- else }}
+      authUrl: "https://dex.{{ .Values.baseDomain }}"
+      {{- end }}
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
     analytics:
       environmentType: {{ .Values.environmentType}}
