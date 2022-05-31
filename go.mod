@@ -58,7 +58,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
 
-replace (
-	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
-	github.com/hashicorp/consul => github.com/hashicorp/consul v1.12.1
-)
+replace github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
