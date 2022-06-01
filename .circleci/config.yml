@@ -46,7 +46,6 @@ workflows:
           chart: "athena"
           executor: "app-build-suite"
           persist_chart_archive: true
-          push_to_oci_registry: true
           # Trigger job on git tag.
           filters:
             tags:
