@@ -8,7 +8,7 @@ metadata:
   name: {{ .Values.name }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
   annotations:
     {{- if .Values.services.athena.letsencrypt}}
     kubernetes.io/tls-acme: "true"

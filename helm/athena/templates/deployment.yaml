@@ -4,7 +4,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
 spec:
   replicas: 2
   revisionHistoryLimit: 3
@@ -12,11 +12,11 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "athena.labels.selector" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        {{- include "athena.labels.common" . | nindent 8 }}
       annotations:
         releaseRevision: {{ .Release.Revision | quote }}
     spec:

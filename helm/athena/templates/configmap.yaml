@@ -4,7 +4,7 @@ metadata:
   name: "{{ .Values.name }}-configmap"
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
 data:
   config.yaml: |
     server:

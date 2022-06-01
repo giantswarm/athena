@@ -4,7 +4,7 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
 spec:
   ports:
   - port: 8000
