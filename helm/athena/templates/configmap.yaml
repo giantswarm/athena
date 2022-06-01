@@ -13,10 +13,22 @@ data:
       listenAddress: "0.0.0.0:8000"
     identity:
       provider: "{{ .Values.provider.kind }}"
+      {{- if .Values.managementCluster.name }}
       codename: "{{ .Values.managementCluster.name }}"
+      {{- else }}
+      codename: "{{ .Values.clusterID }}"
+      {{- end }}
     kubernetes:
+      {{- if .Values.kubernetes.api.address }}
       apiUrl: "{{ .Values.kubernetes.api.address }}"
+      {{- else }}
+      apiUrl: "https://api.{{ .Values.baseDomain }}"
+      {{- end }}
+      {{- if .Values.oidc.issuerAddress }}
       authUrl: "{{ .Values.oidc.issuerAddress }}"
+      {{- else }}
+      authUrl: "https://dex.{{ .Values.baseDomain }}"
+      {{- end }}
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
     analytics:
       environmentType: {{ .Values.environmentType}}

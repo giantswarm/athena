@@ -7,6 +7,9 @@ image:
   repository: giantswarm/athena
   tag: "[[.Version]]"
 
+clusterID: ""
+baseDomain: ""
+
 ingress:
   tls:
     crtPemB64: ""
@@ -21,7 +24,7 @@ managementCluster:
   name: ""
 
 oidc:
-  issuerAddress: issuer.foo.bar
+  issuerAddress: ""
 
 provider:
   kind: ""

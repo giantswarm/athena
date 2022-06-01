@@ -115,3 +115,15 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
+
+      - architect/push-to-app-catalog:
+          name: push-athena-to-giantswarm-playground-catalog
+          app_catalog: "giantswarm-playground-catalog"
+          app_catalog_test: "giantswarm-playground-test-catalog"
+          chart: "athena"
+          # Trigger job on git tag.
+          filters:
+            tags:
+              only: /^v.*/
+          requires:
+            - push-athena-to-quay

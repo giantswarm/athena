@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Allow missing `firestoreServiceAccountKey`.
+- Make changes to helm chart for deployment on workload clusters.
+
 ## [1.5.4] - 2022-03-31
 
 - Use Go 1.17, dependency updates
