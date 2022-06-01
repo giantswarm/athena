@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `team`, `readme`, `values` annotations to `Chart.yaml`.
+- Use `app-build-suite` to generate `application.giantswarm.io/metadata`.
+
+
 ### Changed
 
 - Allow missing `firestoreServiceAccountKey`.

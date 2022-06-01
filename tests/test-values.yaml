@@ -1,0 +1,4 @@
+provider:
+  kind: azure
+kubernetes:
+  caPem: caPem
