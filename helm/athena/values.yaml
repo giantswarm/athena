@@ -5,7 +5,7 @@ groupID: 1000
 image:
   name: athena
   repository: giantswarm/athena
-  tag: 1.5.4
+  tag: "[[.Version]]"
 
 clusterID: ""
 baseDomain: ""
