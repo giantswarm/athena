@@ -3,7 +3,7 @@ name: athena
 description: "A service that knows everything about your installation"
 home: https://github.com/giantswarm/athena
 version: [[ .Version ]]
-appVersion: [[ .AppVersion ]]
+appVersion: 1.5.4
 annotations:
   application.giantswarm.io/team: team-rainbow
   application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/README.md
