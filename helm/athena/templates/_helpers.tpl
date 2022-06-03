@@ -8,13 +8,13 @@ athena
 
 {{- define "athena.labels.selector" -}}
 app: {{ include "athena.name" . }}
-app.kubernetes.io/name: {{ include "athena.name" . }}
-app.kubernetes.io/component: {{ include "athena.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end -}}
 
 {{- define "athena.labels.common" -}}
 {{ include "athena.labels.selector" . }}
+app.kubernetes.io/name: {{ include "athena.name" . }}
+app.kubernetes.io/component: {{ include "athena.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name | quote }}
 helm.sh/chart: {{ include "athena.chart" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
