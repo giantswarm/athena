@@ -1,0 +1,6 @@
+checks:
+  exclude:
+  - "no-read-only-root-fs"
+  - "required-annotation-email"
+  - "required-label-owner"
+  - "use-namespace"

@@ -44,6 +44,8 @@ workflows:
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "athena"
+          executor: "app-build-suite"
+          persist_chart_archive: true
           # Trigger job on git tag.
           filters:
             tags:
@@ -121,9 +123,20 @@ workflows:
           app_catalog: "giantswarm-playground-catalog"
           app_catalog_test: "giantswarm-playground-test-catalog"
           chart: "athena"
+          executor: "app-build-suite"
           # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
           requires:
             - push-athena-to-quay
+
+      - architect/run-tests-with-ats:
+          name: execute chart tests
+          filters:
+            # Do not trigger the job on merge to main.
+            branches:
+              ignore:
+                - main
+          requires:
+            - push-athena-to-control-plane-app-catalog

@@ -4,19 +4,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "athena.labels.selector" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        {{- include "athena.labels.common" . | nindent 8 }}
       annotations:
         releaseRevision: {{ .Release.Revision | quote }}
     spec:
@@ -38,7 +38,7 @@ spec:
         runAsGroup: {{ .Values.groupID }}
       containers:
       - name: {{ .Values.image.name }}
-        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
         imagePullPolicy: Always
         args:
         - "daemon"
