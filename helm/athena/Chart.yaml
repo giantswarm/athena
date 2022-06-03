@@ -2,7 +2,7 @@ apiVersion: v1
 name: athena
 description: "A service that knows everything about your installation"
 home: https://github.com/giantswarm/athena
-version: "[[ .Version ]]"
+version: [[ .Version ]]
 appVersion: 1.5.4
 annotations:
   application.giantswarm.io/team: team-rainbow

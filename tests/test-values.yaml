@@ -4,3 +4,5 @@ kubernetes:
   caPem: caPem
 clusterID: test1
 baseDomain: test1.example.io
+image:
+  tag: 1.5.4-1d727745faced189044fb83f9736ada29f9e9e12
