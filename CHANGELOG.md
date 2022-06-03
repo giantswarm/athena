@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add instructions on how to install `athena` in a workload cluster.
+- Push `athena` to the `giantswarm` catalog
 - Add labels and annotations to the `athena` chart.
 - Use `app-test-suite` to execute smoke tests.
 - Add schema validation for `values.yaml`.
