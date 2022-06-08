@@ -3,7 +3,60 @@
 
 # athena
 
-athena is a service that knows everything about your installation. Its purpose is to provide metadata to clients, so they could easily establish a connection with the Kubernetes API, and identify the installation that they're talking to.
+athena is a service that knows everything about your cluster. Its purpose is to provide metadata to clients, so they could easily establish a connection with the Kubernetes API, and identify the cluster that they're talking to.
+
+# Installing athena in a workload cluster
+
+If [dex](https://github.com/giantswarm/dex-app) is already configured on a giant swarm workload cluster, athena can be used to provide OIDC access information to [kubectl gs](https://github.com/giantswarm/kubectl-gs) for easy login via SSO.
+
+
+The app is installed in workload clusters, via our [app platform](https://docs.giantswarm.io/app-platform/). 
+
+Other than the app itself, you will need to provide a `values.yaml` configuration.
+
+The cluster CA and provider are needed as minimal configuration.
+
+```yaml
+provider:
+  kind: aws
+
+kubernetes:
+  caPem: |
+    -----BEGIN CERTIFICATE-----
+    M...=
+    -----END CERTIFICATE-----
+```
+
+ `.kubernetes.caPem` is the CA certificate of your workload cluster in PEM format. At Giant Swarm, you can retrieve this certificate via the [kubectl gs login](https://docs.giantswarm.io/ui-api/kubectl-gs/login/) command, when creating a client certificate for the workload cluster. It ends up in Base46-encoded form in your kubectl config file. The CA certificate is required by Dex K8s Authenticator.
+
+
+It is also possible to override the api and issuer addresses as well as the cluster name in case it is needed:
+```yaml
+provider:
+  kind: aws
+
+clusterID: test-example
+
+kubernetes:
+  caPem: |
+    -----BEGIN CERTIFICATE-----
+    M...=
+    -----END CERTIFICATE-----
+  api:
+    address: https://api.test.example.io
+oidc:
+  issuerAddress: https://dex.test.example.io
+```
+Access to athena can be restricted to certain CIDRs.
+```yaml
+security:
+  subnet:
+    customer:
+      public: x.x.x.x/x,x.x.x.x/x
+      private: x.x.x.x/x
+    restrictAccess:
+      gsAPI: true
+```
 
 ## Examples
 
