@@ -14,12 +14,9 @@ The app is installed in workload clusters, via our [app platform](https://docs.g
 
 Other than the app itself, you will need to provide a `values.yaml` configuration.
 
-The cluster CA and provider are needed as minimal configuration.
+The cluster CA is needed as minimal configuration.
 
 ```yaml
-provider:
-  kind: aws
-
 kubernetes:
   caPem: |
     -----BEGIN CERTIFICATE-----
@@ -30,7 +27,7 @@ kubernetes:
  `.kubernetes.caPem` is the CA certificate of your workload cluster in PEM format. At Giant Swarm, you can retrieve this certificate via the [kubectl gs login](https://docs.giantswarm.io/ui-api/kubectl-gs/login/) command, when creating a client certificate for the workload cluster. It ends up in Base46-encoded form in your kubectl config file. The CA certificate is required by Dex K8s Authenticator.
 
 
-It is also possible to override the api and issuer addresses as well as the cluster name in case it is needed:
+It is also possible to override the api and issuer addresses as well as the cluster name and provider in case it is needed:
 ```yaml
 provider:
   kind: aws
