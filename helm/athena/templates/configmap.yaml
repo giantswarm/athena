@@ -16,6 +16,7 @@ data:
       provider: "{{ .Values.provider.kind }}"
       {{- else }}
       provider: "{{ .Values.provider }}"
+      {{- end }}
       {{- if .Values.managementCluster.name }}
       codename: "{{ .Values.managementCluster.name }}"
       {{- else }}
