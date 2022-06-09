@@ -26,6 +26,7 @@ managementCluster:
 oidc:
   issuerAddress: ""
 
+# provider can be a string or an object
 provider:
   kind: ""
 
