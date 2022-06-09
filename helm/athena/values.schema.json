@@ -99,7 +99,7 @@
             }
         },
         "provider": {
-            "type": ["integer", "string"],
+            "type": ["object", "string"],
             "properties": {
                 "kind": {
                     "type": "string"
