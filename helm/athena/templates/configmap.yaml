@@ -12,10 +12,10 @@ data:
       - "{{ .Values.services.happa.address }}"
       listenAddress: "0.0.0.0:8000"
     identity:
-      {{- if .Values.provider.kind }}
-      provider: "{{ .Values.provider.kind }}"
+      {{- if (eq (kindOf .Values.provider) "string") }}
+      provider: "{{ .Values.provider }}"      
       {{- else }}
-      provider: "{{ .Values.provider }}"
+      provider: "{{ .Values.provider.kind }}"
       {{- end }}
       {{- if .Values.managementCluster.name }}
       codename: "{{ .Values.managementCluster.name }}"
