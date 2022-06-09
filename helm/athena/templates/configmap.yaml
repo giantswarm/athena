@@ -13,7 +13,7 @@ data:
       listenAddress: "0.0.0.0:8000"
     identity:
       {{- if (eq (kindOf .Values.provider) "string") }}
-      provider: "{{ .Values.provider }}"      
+      provider: "{{ .Values.provider }}"
       {{- else }}
       provider: "{{ .Values.provider.kind }}"
       {{- end }}
