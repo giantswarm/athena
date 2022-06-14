@@ -57,7 +57,7 @@ security:
 
 ## Examples
 
-You can find example queries in the [examples folder](./examples). You can execute these in the GraphQL playground app (at the `/` route).
+You can find example queries in the [examples folder](https://github.com/giantswarm/athena/blob/main/examples). You can execute these in the GraphQL playground app (at the `/` route).
 
 ## How to add a new property?
 
