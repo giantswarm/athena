@@ -9,6 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Fix broken relative link in README
+
+## [1.6.2] - 2022-06-09
+
+## [1.6.1] - 2022-06-09
+
+### Fixed
+
+- Fix templating of `provider` value when app is installed from the `giantswarm` catalog.
+
 ## [1.6.0] - 2022-06-08
 
 ### Added
@@ -103,7 +114,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.6.2...HEAD
+[1.6.2]: https://github.com/giantswarm/athena/compare/v1.6.1...v1.6.2
+[1.6.1]: https://github.com/giantswarm/athena/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/giantswarm/athena/compare/v1.5.4...v1.6.0
 [1.5.4]: https://github.com/giantswarm/athena/compare/v1.5.3...v1.5.4
 [1.5.3]: https://github.com/giantswarm/athena/compare/v1.5.2...v1.5.3
