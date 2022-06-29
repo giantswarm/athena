@@ -3,7 +3,7 @@
 
 # Athena
 
-Athena is a service that knows some useful about your cluster. Its purpose is to provide some none-sensitive data (e. g. the CA certificate of the Kubernetes API, the cluster identifier, the cloud provider) to public clients, so they could easily establish a connection with the Kubernetes API, and identify the cluster that they're talking to.
+Athena is a service that knows some useful things about your cluster. Its purpose is to provide some non-sensitive data (e. g. the CA certificate of the Kubernetes API, the cluster identifier, the cloud provider) to public clients, so they could easily establish a connection with the Kubernetes API, and identify the cluster that they're talking to.
 
 Athena is typically running in every Giant Swarm management cluster, but is also useful in workload clusters.
 
