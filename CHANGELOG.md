@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Enforce the management cluster name in workload cluster info.
+- Enforce the management cluster name in workload cluster info and automatically fill in the CA.
 
 ### Fixed
 

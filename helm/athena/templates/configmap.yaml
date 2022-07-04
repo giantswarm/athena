@@ -33,6 +33,10 @@ data:
       {{- else }}
       authUrl: "https://dex.{{ .Values.baseDomain }}"
       {{- end }}
+      {{- if .Values.kubernetes.caPem }}
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
+      {{- else }}
+      caCert: "{{ toYaml .Values.clusterCA | indent 8 }}"
+      {{- end }}
     analytics:
       environmentType: {{ .Values.environmentType}}
