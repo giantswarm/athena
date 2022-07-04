@@ -15,9 +15,12 @@ The app is installed in workload clusters, via our [app platform](https://docs.g
 
 Other than the app itself, you will need to provide a `values.yaml` configuration.
 
-The cluster CA is needed as minimal configuration.
+The cluster CA and management cluster name is needed as minimal configuration.
 
 ```yaml
+managementCluster:
+  name: test
+
 kubernetes:
   caPem: |
     -----BEGIN CERTIFICATE-----
@@ -33,7 +36,9 @@ It is also possible to override the api and issuer addresses as well as the clus
 provider:
   kind: aws
 
-clusterID: test-example
+managementCluster:
+  name: test
+clusterID: example
 
 kubernetes:
   caPem: |

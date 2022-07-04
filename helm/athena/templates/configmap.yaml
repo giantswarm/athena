@@ -17,10 +17,10 @@ data:
       {{- else }}
       provider: "{{ .Values.provider.kind }}"
       {{- end }}
-      {{- if .Values.managementCluster.name }}
-      codename: "{{ .Values.managementCluster.name }}"
+      {{- if .Values.clusterID }}
+      codename: "{{ .Values.managementCluster.name }}-{{ .Values.clusterID }}"
       {{- else }}
-      codename: "{{ .Values.clusterID }}"
+      codename: "{{ .Values.managementCluster.name }}"
       {{- end }}
     kubernetes:
       {{- if .Values.kubernetes.api.address }}

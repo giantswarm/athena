@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Enforce the management cluster name in workload cluster info.
+
 ### Fixed
+
 - Fix broken relative link in README
 
 ## [1.6.2] - 2022-06-09
