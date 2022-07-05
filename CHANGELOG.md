@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2022-07-05
+
 ### Added
 
 - Enforce the management cluster name in workload cluster info and automatically fill in the CA.
@@ -119,7 +121,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.6.2...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.0...HEAD
+[1.7.0]: https://github.com/giantswarm/athena/compare/v1.6.2...v1.7.0
 [1.6.2]: https://github.com/giantswarm/athena/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/giantswarm/athena/compare/v1.6.0...v1.6.1
 [1.6.0]: https://github.com/giantswarm/athena/compare/v1.5.4...v1.6.0
