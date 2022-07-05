@@ -1,9 +1,6 @@
 provider: azure
-clusterCA: |-
-  -----BEGIN CERTIFICATE-----
-  something
-  something
-  -----END CERTIFICATE-----
+kubernetes:
+  caPem: caPem
 managementCluster:
   name: example
 clusterID: test1
