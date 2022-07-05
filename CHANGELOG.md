@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Replace `|-` with `|` in CA templating.
+
 ## [1.7.0] - 2022-07-05
 
 ### Added
