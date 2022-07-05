@@ -1,6 +1,10 @@
-provider:
-  kind: azure
-kubernetes:
-  caPem: caPem
+provider: azure
+clusterCA: |-
+  -----BEGIN CERTIFICATE-----
+  something
+  something
+  -----END CERTIFICATE-----
+managementCluster:
+  name: example
 clusterID: test1
 baseDomain: test1.example.io
