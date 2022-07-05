@@ -17,10 +17,10 @@ data:
       {{- else }}
       provider: "{{ .Values.provider.kind }}"
       {{- end }}
-      {{- if .Values.managementCluster.name }}
-      codename: "{{ .Values.managementCluster.name }}"
+      {{- if .Values.clusterID }}
+      codename: "{{ .Values.managementCluster.name }}-{{ .Values.clusterID }}"
       {{- else }}
-      codename: "{{ .Values.clusterID }}"
+      codename: "{{ .Values.managementCluster.name }}"
       {{- end }}
     kubernetes:
       {{- if .Values.kubernetes.api.address }}
@@ -33,6 +33,10 @@ data:
       {{- else }}
       authUrl: "https://dex.{{ .Values.baseDomain }}"
       {{- end }}
+      {{- if .Values.kubernetes.caPem }}
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
+      {{- else }}
+      caCert: "{{ toYaml .Values.clusterCA | indent 8 }}"
+      {{- end }}
     analytics:
       environmentType: {{ .Values.environmentType}}
