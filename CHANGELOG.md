@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.1] - 2022-07-06
+
 ### Added
 
 - Replace `|-` with `|` in CA templating.
@@ -125,7 +127,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.0...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.1...HEAD
+[1.7.1]: https://github.com/giantswarm/athena/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/giantswarm/athena/compare/v1.6.2...v1.7.0
 [1.6.2]: https://github.com/giantswarm/athena/compare/v1.6.1...v1.6.2
 [1.6.1]: https://github.com/giantswarm/athena/compare/v1.6.0...v1.6.1
