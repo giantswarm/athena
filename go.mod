@@ -1,18 +1,18 @@
 module github.com/giantswarm/athena
 
-go 1.17
+go 1.18
 
 require (
 	cloud.google.com/go/firestore v1.6.1
 	firebase.google.com/go v3.13.0+incompatible
-	github.com/99designs/gqlgen v0.17.12
+	github.com/99designs/gqlgen v0.17.13
 	github.com/giantswarm/microerror v0.4.0
 	github.com/google/go-cmp v0.5.8
 	github.com/spf13/cobra v1.5.0
 	github.com/spf13/viper v1.12.0
-	github.com/vektah/gqlparser/v2 v2.4.6
+	github.com/vektah/gqlparser/v2 v2.4.7
 	go.uber.org/zap v1.21.0
-	google.golang.org/api v0.87.0
+	google.golang.org/api v0.90.0
 )
 
 require (
