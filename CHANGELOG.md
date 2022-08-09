@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add CI job to push to `capa-app-collection`.
+
 ## [1.7.1] - 2022-07-06
 
 ### Added
