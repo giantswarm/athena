@@ -13,7 +13,6 @@ import (
 const (
 	name        = "daemon"
 	description = "Run the API server daemon."
-	caFile      = "kube-root-ca.crt"
 )
 
 type Config struct {

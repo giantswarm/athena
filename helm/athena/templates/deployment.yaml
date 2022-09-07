@@ -22,15 +22,11 @@ spec:
     spec:
       volumes:
       - name: "{{ .Values.name }}-configmap"
-        projected:
-          sources:
-          - configMap:
-            name: "{{ .Values.name }}-configmap"
-            items:
-            - key: config.yaml
-              path: config.yaml
-          - configMap:
-            name: "kube-root-ca.crt"
+        configMap:
+          name: "{{ .Values.name }}-configmap"
+          items:
+          - key: config.yaml
+            path: config.yaml
       - name: "{{ .Values.name }}-secret"
         secret:
           secretName: "{{ .Values.name }}-secret"
@@ -44,6 +40,12 @@ spec:
       - name: {{ .Values.image.name }}
         image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
         imagePullPolicy: Always
+        env:
+        - name: ATHENA_KUBERNETES_CACERT
+          valueFrom:
+            configMapKeyRef:
+              name: "kube-root-ca.crt"
+              key: "ca.crt"
         args:
         - "daemon"
         - "--config-dir=/var/run/{{ .Values.name }}/configmap/"
