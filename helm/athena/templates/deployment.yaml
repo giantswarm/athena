@@ -22,11 +22,15 @@ spec:
     spec:
       volumes:
       - name: "{{ .Values.name }}-configmap"
-        configMap:
-          name: "{{ .Values.name }}-configmap"
-          items:
-          - key: config.yaml
-            path: config.yaml
+        projected:
+          sources:
+          - configMap:
+            name: "{{ .Values.name }}-configmap"
+            items:
+            - key: config.yaml
+              path: config.yaml
+          - configMap:
+            name: "kube-root-ca.crt"
       - name: "{{ .Values.name }}-secret"
         secret:
           secretName: "{{ .Values.name }}-secret"

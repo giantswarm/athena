@@ -50,6 +50,11 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 			return microerror.Mask(err)
 		}
 
+		err = r.readConfig(cmd, r.flag.ConfigDir, caFile)
+		if err != nil {
+			return microerror.Mask(err)
+		}
+
 		err = r.readConfig(cmd, r.flag.SecretDir, r.flag.SecretFile)
 		if err != nil {
 			return microerror.Mask(err)
@@ -76,7 +81,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 			InstallationCodename:     r.viper.GetString("identity.codename"),
 			InstallationK8sApiUrl:    r.viper.GetString("kubernetes.apiUrl"),
 			InstallationK8sAuthUrl:   r.viper.GetString("kubernetes.authUrl"),
-			InstallationK8sCaCert:    r.viper.GetString("kubernetes.caCert"),
+			InstallationK8sCaCert:    r.viper.GetString("ca.crt"),
 			AnalyticsEnv:             r.viper.GetString("analytics.environmentType"),
 			AnalyticsCredentialsJSON: r.viper.GetString("analytics.credentialsJSON"),
 		}
