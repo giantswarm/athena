@@ -34,9 +34,9 @@ data:
       authUrl: "https://dex.{{ .Values.baseDomain }}"
       {{- end }}
       {{- if .Values.kubernetes.caPem }}
-      caCert: ""
+      caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
       {{- else }}
-      caCert: ""
+      caCert: "{{ toYaml .Values.clusterCA | replace "|-" "|" | indent 8 }}"
       {{- end }}
     analytics:
       environmentType: {{ .Values.environmentType}}

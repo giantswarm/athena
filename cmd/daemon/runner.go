@@ -102,6 +102,7 @@ func (r *runner) readConfig(cmd *cobra.Command, dir string, file string) error {
 
 	v.AddConfigPath(dir)
 	v.SetConfigName(file)
+
 	err := v.ReadInConfig()
 	if errors.As(err, &viper.ConfigFileNotFoundError{}) {
 		// Ignore error, we can use defaults.
