@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.4] - 2022-09-12
+
 ## [1.7.3] - 2022-09-12
 
 ### Added
@@ -139,7 +141,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.3...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.4...HEAD
+[1.7.4]: https://github.com/giantswarm/athena/compare/v1.7.3...v1.7.4
 [1.7.3]: https://github.com/giantswarm/athena/compare/v1.7.2...v1.7.3
 [1.7.2]: https://github.com/giantswarm/athena/compare/v1.7.1...v1.7.2
 [1.7.1]: https://github.com/giantswarm/athena/compare/v1.7.0...v1.7.1
