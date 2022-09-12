@@ -35,7 +35,7 @@ data:
       {{- end }}
       {{- if .Values.kubernetes.caPem }}
       caCert: "{{ toYaml .Values.kubernetes.caPem | indent 8 }}"
-      {{- else }}
+      {{- else if .Values.clusterCA }}
       caCert: "{{ toYaml .Values.clusterCA | replace "|-" "|" | indent 8 }}"
       {{- end }}
     analytics:
