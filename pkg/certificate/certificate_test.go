@@ -68,6 +68,30 @@ lastthing
 
 -----END CERTIFICATE-----`,
 		},
+		{
+			name: "case 6: parse a certificate with leading and trailing spaces",
+			cert: `  -----BEGIN CERTIFICATE----- something otherthing lastthing -----END CERTIFICATE-----  `,
+			expected: `-----BEGIN CERTIFICATE-----
+something
+otherthing
+lastthing
+-----END CERTIFICATE-----`,
+		},
+		{
+			name: "case 7: parse a certificate with leading and trailing newline",
+			cert: `
+-----BEGIN CERTIFICATE-----
+something
+otherthing
+lastthing
+-----END CERTIFICATE-----
+`,
+			expected: `-----BEGIN CERTIFICATE-----
+something
+otherthing
+lastthing
+-----END CERTIFICATE-----`,
+		},
 	}
 
 	for _, tc := range testCases {
