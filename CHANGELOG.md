@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Updated CA certificate parsing to sanitize leading nd trailing white spaces and newlines
+
 ## [1.7.4] - 2022-09-12
 
 ## [1.7.3] - 2022-09-12
