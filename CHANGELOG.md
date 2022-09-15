@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Updated CA certificate parsing to sanitize leading nd trailing white spaces and newlines
+- Updated CA certificate parsing to sanitize leading and trailing white spaces and newlines
 
 ## [1.7.4] - 2022-09-12
 
