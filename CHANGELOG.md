@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.5] - 2022-09-15
+
 ### Fixed
 
 - Updated CA certificate parsing to sanitize leading and trailing white spaces and newlines
@@ -145,7 +147,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.4...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.5...HEAD
+[1.7.5]: https://github.com/giantswarm/athena/compare/v1.7.4...v1.7.5
 [1.7.4]: https://github.com/giantswarm/athena/compare/v1.7.3...v1.7.4
 [1.7.3]: https://github.com/giantswarm/athena/compare/v1.7.2...v1.7.3
 [1.7.2]: https://github.com/giantswarm/athena/compare/v1.7.1...v1.7.2
