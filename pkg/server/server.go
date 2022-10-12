@@ -2,6 +2,7 @@ package server
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -12,6 +13,10 @@ import (
 	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/resolver"
 	"github.com/giantswarm/athena/pkg/server/middleware"
+)
+
+const (
+	readHeaderTimeout = 60 * time.Second
 )
 
 type Config struct {
@@ -130,8 +135,9 @@ func (s *Server) Boot() error {
 	}
 
 	server := &http.Server{
-		Addr:    s.listenAddress,
-		Handler: mux,
+		Addr:              s.listenAddress,
+		Handler:           mux,
+		ReadHeaderTimeout: readHeaderTimeout,
 	}
 
 	s.log.Infof("server listening on address %s", s.listenAddress)
