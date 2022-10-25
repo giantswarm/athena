@@ -68,4 +68,7 @@ replace (
 
 	// CVE-2022-32149
 	golang.org/x/text => golang.org/x/text v0.4.0
+
+	// CVE-2022-28948
+	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
 )
