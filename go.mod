@@ -66,6 +66,9 @@ replace (
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.15.3
 
+	// CVE-2022-27664
+	golang.org/x/net => golang.org/x/net v0.0.0-20220906165146-f3363e06e74c
+
 	// CVE-2022-32149
 	golang.org/x/text => golang.org/x/text v0.4.0
 
