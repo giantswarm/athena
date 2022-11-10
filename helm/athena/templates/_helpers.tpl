@@ -51,7 +51,7 @@ app.kubernetes.io/instance: "{{ template "athena.fixJob" . }}"
 
 {{- define "athena.fixJobAnnotations" -}}
 "helm.sh/hook": "pre-upgrade"
-"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded,hook-failed"
+"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
 {{- end -}}
 
 {{/* Create a label which can be used to select any orphaned fix-job hook resources */}}
