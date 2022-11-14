@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2022-11-14
+
 ### Added
 
 - Added `CiliumNetworkPolicy` for the CRD install job.
@@ -167,7 +169,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.7.6...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.8.0...HEAD
+[1.8.0]: https://github.com/giantswarm/athena/compare/v1.7.6...v1.8.0
 [1.7.6]: https://github.com/giantswarm/athena/compare/v1.7.5...v1.7.6
 [1.7.5]: https://github.com/giantswarm/athena/compare/v1.7.4...v1.7.5
 [1.7.4]: https://github.com/giantswarm/athena/compare/v1.7.3...v1.7.4
