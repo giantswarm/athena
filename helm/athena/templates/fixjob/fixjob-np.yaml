@@ -16,9 +16,8 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      matchLabels:
-        app.kubernetes.io/component: {{ include "athena.fixJob" . | quote }}
-        {{- include "athena.fixJobSelectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: {{ include "athena.fixJob" . | quote }}
+      {{- include "athena.fixJobSelectorLabels" . | nindent 6 }}
   egress:
     - toEntities:
         - kube-apiserver
