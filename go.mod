@@ -65,7 +65,7 @@ require (
 
 replace (
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
-	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.15.3
+	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.17.0
 
 	// CVE-2022-27664
 	golang.org/x/net => golang.org/x/net v0.2.0
