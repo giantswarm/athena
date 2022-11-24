@@ -77,7 +77,7 @@
             }
         },
         "managementCluster": {
-            "type": "object",
+            "type": ["object", "string"],
             "properties": {
                 "name": {
                     "type": "string"

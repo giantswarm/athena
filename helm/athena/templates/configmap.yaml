@@ -17,7 +17,11 @@ data:
       {{- else }}
       provider: "{{ .Values.provider.kind }}"
       {{- end }}
-      {{- if .Values.clusterID }}
+      {{- if and (eq (kindOf .Values.managementCluster) "string") (.Values.clusterID) }}
+      codename: "{{ .Values.managementCluster }}-{{ .Values.clusterID }}"
+      {{- else if (eq (kindOf .Values.managementCluster) "string") }}
+      codename: "{{ .Values.managementCluster }}"
+      {{- else if .Values.clusterID }}
       codename: "{{ .Values.managementCluster.name }}-{{ .Values.clusterID }}"
       {{- else }}
       codename: "{{ .Values.managementCluster.name }}"
