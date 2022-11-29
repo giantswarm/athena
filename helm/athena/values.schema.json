@@ -50,11 +50,17 @@
                 "tls": {
                     "type": "object",
                     "properties": {
+                        "clusterIssuer": {
+                            "type": "string"
+                        },
                         "crtPemB64": {
                             "type": "string"
                         },
                         "keyPemB64": {
                             "type": "string"
+                        },
+                        "letsencrypt": {
+                            "type": "boolean"
                         }
                     }
                 }
@@ -173,9 +179,6 @@
                         },
                         "host": {
                             "type": "string"
-                        },
-                        "letsencrypt": {
-                            "type": "boolean"
                         }
                     }
                 },

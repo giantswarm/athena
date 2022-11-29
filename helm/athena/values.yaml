@@ -12,6 +12,8 @@ baseDomain: ""
 
 ingress:
   tls:
+    letsencrypt: true
+    clusterIssuer: ""
     crtPemB64: ""
     keyPemB64: ""
 
@@ -45,7 +47,6 @@ services:
   athena:
     address: ""
     host: ""
-    letsencrypt: true
 
 analytics:
   environmentType: ""
