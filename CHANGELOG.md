@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.0] - 2022-11-29
+
 ### Added
 
 - Add option to configure custom clusterIssuer for certificate generation.
@@ -185,7 +187,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.8.2...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.9.0...HEAD
+[1.9.0]: https://github.com/giantswarm/athena/compare/v1.8.2...v1.9.0
 [1.8.2]: https://github.com/giantswarm/athena/compare/v1.8.1...v1.8.2
 [1.8.1]: https://github.com/giantswarm/athena/compare/v1.8.0...v1.8.1
 [1.8.0]: https://github.com/giantswarm/athena/compare/v1.7.6...v1.8.0
