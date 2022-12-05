@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Remove CA pem example from readme as it is no longer required
+
 ## [1.9.0] - 2022-11-29
 
 ### Added
