@@ -22,7 +22,7 @@ managementCluster:
   name: test
 ```
 
-It is also possible to override the api and issuer addresses, CA as well as the cluster name and provider in case it is needed:
+It is also possible to override the api and issuer addresses as well as the cluster name and provider in case it is needed:
 ```yaml
 managementCluster:
   name: test
@@ -30,10 +30,6 @@ clusterID: example
 provider:
   kind: aws
 kubernetes:
-  caPem: |
-    -----BEGIN CERTIFICATE-----
-    M...=
-    -----END CERTIFICATE-----
   api:
     address: https://api.test.example.io
 oidc:
