@@ -17,6 +17,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add option to configure custom clusterIssuer for certificate generation.
 
+### Changed
+
+- Marked `caPem` in schema as deprecated.
+
 ## [1.8.2] - 2022-11-24
 
 ### Added

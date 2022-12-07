@@ -78,7 +78,8 @@
                     }
                 },
                 "caPem": {
-                    "type": "string"
+                    "type": "string",
+                    "deprecated": true
                 }
             }
         },
