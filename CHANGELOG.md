@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed labels in certs-secret Helm template
+
 ### Removed
 
 - Remove CA pem example from readme as it is no longer required
