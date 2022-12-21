@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.1] - 2022-12-21
+
 ### Fixed
 
 - Fixed labels in certs-secret Helm template
@@ -199,7 +201,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.9.0...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.9.1...HEAD
+[1.9.1]: https://github.com/giantswarm/athena/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/giantswarm/athena/compare/v1.8.2...v1.9.0
 [1.8.2]: https://github.com/giantswarm/athena/compare/v1.8.1...v1.8.2
 [1.8.1]: https://github.com/giantswarm/athena/compare/v1.8.0...v1.8.1
