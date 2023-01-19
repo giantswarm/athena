@@ -12,7 +12,7 @@ require (
 	github.com/spf13/viper v1.14.0
 	github.com/vektah/gqlparser/v2 v2.5.1
 	go.uber.org/zap v1.24.0
-	google.golang.org/api v0.107.0
+	google.golang.org/api v0.108.0
 )
 
 require (
