@@ -69,3 +69,11 @@ registry:
 # and services.athena.letsencrypt=true
 fixJob:
   enabled: true
+
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  seccompProfile:
+    type: RuntimeDefault

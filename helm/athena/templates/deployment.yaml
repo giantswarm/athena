@@ -36,6 +36,9 @@ spec:
       securityContext:
         runAsUser: {{ .Values.userID }}
         runAsGroup: {{ .Values.groupID }}
+        {{- with .Values.podSecurityContext }}
+          {{- . | toYaml | nindent 8 }}
+        {{- end }}
       containers:
       - name: {{ .Values.image.name }}
         image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
@@ -55,6 +58,10 @@ spec:
         ports:
         - containerPort: 8000
           name: http
+        securityContext:
+          {{- with .Values.securityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         resources:
           requests:
             cpu: 100m
