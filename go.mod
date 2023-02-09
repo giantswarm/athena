@@ -48,8 +48,8 @@ require (
 	golang.org/x/net v0.4.0 // indirect
 	golang.org/x/oauth2 v0.0.0-20221014153046-6fdb5e3db783 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.4.0 // indirect
-	golang.org/x/text v0.6.0 // indirect
+	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	golang.org/x/time v0.1.0 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
@@ -66,10 +66,10 @@ replace (
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.18.0
 
 	// CVE-2022-27664
-	golang.org/x/net => golang.org/x/net v0.5.0
+	golang.org/x/net => golang.org/x/net v0.6.0
 
 	// CVE-2022-32149
-	golang.org/x/text => golang.org/x/text v0.6.0
+	golang.org/x/text => golang.org/x/text v0.7.0
 
 	// CVE-2022-28948
 	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
