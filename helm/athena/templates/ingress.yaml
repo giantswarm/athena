@@ -18,6 +18,14 @@ metadata:
     {{- if .Values.security.subnet.restrictAccess.gsAPI }}
     nginx.ingress.kubernetes.io/whitelist-source-range: {{ template "whitelistCIDR" . }}
     {{- end }}
+    {{- if .Values.ingress.externalDNS }}
+    {{- if .Values.services.athena.host }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.services.athena.host }}
+    {{- else }}
+    external-dns.alpha.kubernetes.io/hostname: athena.{{ .Values.baseDomain }}
+    {{- end }}
+    giantswarm.io/external-dns: managed
+    {{- end }}
 spec:
   ingressClassName: nginx
   rules:
