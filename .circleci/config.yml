@@ -196,3 +196,27 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-kvm-app-collection
+          app_name: "athena"
+          app_collection_repo: "kvm-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-capz-app-collection
+          app_name: "athena"
+          app_collection_repo: "capz-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/

@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Push to `kvm` and `capz` app collections.
+
 ## [1.9.2] - 2023-03-02
 
 - Add additional annotations on all `ingress` objects to support DNS record creation via `external-dns`
