@@ -39,22 +39,3 @@ giantswarm.io/service-type: "managed"
 {{- join "," $CIDRs.whitelist -}}
 
 {{- end -}}
-
-{{- define "athena.fixJob" -}}
-{{- printf "%s-%s" .Chart.Name "fix-job" -}}
-{{- end -}}
-
-{{- define "athena.fixJobSelectorLabels" -}}
-app.kubernetes.io/name: "{{ template "athena.fixJob" . }}"
-app.kubernetes.io/instance: "{{ template "athena.fixJob" . }}"
-{{- end -}}
-
-{{- define "athena.fixJobAnnotations" -}}
-"helm.sh/hook": "pre-upgrade"
-"helm.sh/hook-delete-policy": "before-hook-creation,hook-succeeded"
-{{- end -}}
-
-{{/* Create a label which can be used to select any orphaned fix-job hook resources */}}
-{{- define "athena.fixJobSelector" -}}
-{{- printf "%s" "fix-job-hook" -}}
-{{- end -}}

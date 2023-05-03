@@ -19,14 +19,6 @@
         "clusterID": {
             "type": "string"
         },
-        "fixJob": {
-            "type": "object",
-            "properties": {
-                "enabled": {
-                    "type": "boolean"
-                }
-            }
-        },
         "groupID": {
             "type": "integer"
         },
