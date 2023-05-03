@@ -62,15 +62,6 @@ registry:
   pullSecret:
     dockerConfigJSON: ""
 
-# Job installed by Helm hook to work
-# around type field being immutable
-# in Kubernetes secrets
-#
-# Has no effect for fresh installations
-# and services.athena.letsencrypt=true
-fixJob:
-  enabled: true
-
 podSecurityContext:
   seccompProfile:
     type: RuntimeDefault
