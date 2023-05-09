@@ -170,19 +170,6 @@ workflows:
             tags:
               only: /^v.*/
 
-
-      - architect/push-to-app-collection:
-          context: architect
-          name: push-to-openstack-app-collection
-          app_name: "athena"
-          app_collection_repo: "openstack-app-collection"
-          requires:
-            - push-athena-to-control-plane-app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
       - architect/push-to-app-collection:
           context: architect
           name: push-to-kvm-app-collection
