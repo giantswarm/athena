@@ -5,4 +5,5 @@ home: https://github.com/giantswarm/athena
 version: [[ .Version ]]
 appVersion: [[ .AppVersion ]]
 annotations:
+  application.giantswarm.io/team: "bigmac"
   config.giantswarm.io/version: 1.x.x
