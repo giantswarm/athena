@@ -16,6 +16,7 @@ const (
 func Parse(cert string) string {
 	cert = strings.TrimPrefix(cert, yamlMultiLinePrefix)
 
+	cert = strings.TrimSpace(cert)
 	cert = strings.TrimPrefix(cert, certPrefix)
 	cert = strings.TrimSuffix(cert, certSuffix)
 	cert = strings.TrimSpace(cert)

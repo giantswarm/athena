@@ -7,9 +7,14 @@ image:
   repository: giantswarm/athena
   tag: "[[.Version]]"
 
+clusterID: ""
+baseDomain: ""
+
 ingress:
+  externalDNS: false
   tls:
-    caPemB64: ""
+    letsencrypt: true
+    clusterIssuer: ""
     crtPemB64: ""
     keyPemB64: ""
 
@@ -22,8 +27,9 @@ managementCluster:
   name: ""
 
 oidc:
-  issuerAddress: issuer.foo.bar
+  issuerAddress: ""
 
+# provider can be a string or an object
 provider:
   kind: ""
 
@@ -42,10 +48,24 @@ services:
   athena:
     address: ""
     host: ""
-    letsencrypt: true
+
+analytics:
+  environmentType: ""
+  credentialsJSON: ""
+
+secret:
+  firestoreServiceAccountKey: ""
 
 # generic configuration
 registry:
   domain: docker.io
   pullSecret:
     dockerConfigJSON: ""
+
+podSecurityContext:
+  seccompProfile:
+    type: RuntimeDefault
+
+securityContext:
+  seccompProfile:
+    type: RuntimeDefault

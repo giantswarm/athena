@@ -1,0 +1,27 @@
+scalar Payload
+scalar Date
+
+type AnalyticsEvent {
+  appID: String!
+  sessionID: String!
+  payloadType: String!
+  payloadSchemaVersion: Int!
+  payload: Payload!
+  uri: String!
+  timestamp: Date!
+  installationID: String!
+  environmentClass: String!
+}
+
+input AnalyticsEventInput {
+  appID: String!
+  sessionID: String!
+  payloadType: String!
+  payloadSchemaVersion: Int!
+  payload: Payload!
+  uri: String!
+}
+
+extend type Mutation {
+  createAnalyticsEvent(event: AnalyticsEventInput!): AnalyticsEvent!
+}

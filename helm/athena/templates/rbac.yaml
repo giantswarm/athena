@@ -3,7 +3,7 @@ kind: ClusterRole
 metadata:
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
     giantswarm.io/service-type: "managed"
 rules:
   - apiGroups:
@@ -20,7 +20,7 @@ kind: ClusterRoleBinding
 metadata:
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
     giantswarm.io/service-type: "managed"
 roleRef:
   apiGroup: rbac.authorization.k8s.io

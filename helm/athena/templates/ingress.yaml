@@ -1,30 +1,58 @@
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
+apiVersion: networking.k8s.io/v1
+{{- else }}
 apiVersion: networking.k8s.io/v1beta1
+{{- end }}
 kind: Ingress
 metadata:
   name: {{ .Values.name }}
   namespace: {{ .Release.Namespace }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
   annotations:
-    kubernetes.io/ingress.class: nginx
-
-    {{- if .Values.services.athena.letsencrypt}}
-    kubernetes.io/tls-acme: "true"
+    {{- if .Values.ingress.tls.letsencrypt }}
+    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
+    {{- else if ne .Values.ingress.tls.clusterIssuer "" }}
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.clusterIssuer }}
     {{- end }}
-
     {{- if .Values.security.subnet.restrictAccess.gsAPI }}
     nginx.ingress.kubernetes.io/whitelist-source-range: {{ template "whitelistCIDR" . }}
     {{- end }}
+    {{- if .Values.ingress.externalDNS }}
+    {{- if .Values.services.athena.host }}
+    external-dns.alpha.kubernetes.io/hostname: {{ .Values.services.athena.host }}
+    {{- else }}
+    external-dns.alpha.kubernetes.io/hostname: athena.{{ .Values.baseDomain }}
+    {{- end }}
+    giantswarm.io/external-dns: managed
+    {{- end }}
 spec:
+  ingressClassName: nginx
   rules:
+  {{- if .Values.services.athena.host }}
   - host: {{ .Values.services.athena.host }}
+  {{- else }}
+  - host: athena.{{ .Values.baseDomain }}
+  {{- end }}
     http:
       paths:
       - path: /
+        pathType: ImplementationSpecific
         backend:
+{{- if .Capabilities.APIVersions.Has "networking.k8s.io/v1/Ingress" }}
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: 8000
+{{- else }}
           serviceName: {{ .Values.name }}
           servicePort: 8000
+{{- end }}
   tls:
   - hosts:
+    {{- if .Values.services.athena.host }}
     - {{ .Values.services.athena.host }}
+    {{- else }}
+    - athena.{{ .Values.baseDomain }}
+    {{- end }}
     secretName: "{{ .Values.name }}-certs-secret"

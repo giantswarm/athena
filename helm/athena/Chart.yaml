@@ -1,9 +1,12 @@
 apiVersion: v1
 name: athena
-description: "A service that knows everything about your installation"
+description: A service providing non-sensitive information about your cluster to clients
+icon: https://s.giantswarm.io/app-icons/athena/1/light.svg
 home: https://github.com/giantswarm/athena
 version: [[ .Version ]]
 appVersion: [[ .AppVersion ]]
 annotations:
-  application.giantswarm.io/team: "bigmac"
+  application.giantswarm.io/team: bigmac
+  application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/README.md
+  application.giantswarm.io/values-schema: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/helm/athena/values.schema.json
   config.giantswarm.io/version: 1.x.x

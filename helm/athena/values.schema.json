@@ -1,0 +1,201 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "type": "object",
+    "properties": {
+        "analytics": {
+            "type": "object",
+            "properties": {
+                "credentialsJSON": {
+                    "type": "string"
+                },
+                "environmentType": {
+                    "type": "string"
+                }
+            }
+        },
+        "baseDomain": {
+            "type": "string"
+        },
+        "clusterID": {
+            "type": "string"
+        },
+        "groupID": {
+            "type": "integer"
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            }
+        },
+        "ingress": {
+            "type": "object",
+            "properties": {
+                "externalDNS": {
+                    "type": "boolean"
+                },
+                "tls": {
+                    "type": "object",
+                    "properties": {
+                        "clusterIssuer": {
+                            "type": "string"
+                        },
+                        "crtPemB64": {
+                            "type": "string"
+                        },
+                        "keyPemB64": {
+                            "type": "string"
+                        },
+                        "letsencrypt": {
+                            "type": "boolean"
+                        }
+                    }
+                }
+            }
+        },
+        "kubernetes": {
+            "type": "object",
+            "properties": {
+                "api": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "caPem": {
+                    "type": "string",
+                    "deprecated": true
+                }
+            }
+        },
+        "managementCluster": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "name": {
+            "type": "string"
+        },
+        "namespace": {
+            "type": "string"
+        },
+        "oidc": {
+            "type": "object",
+            "properties": {
+                "issuerAddress": {
+                    "type": "string"
+                }
+            }
+        },
+        "provider": {
+            "type": [
+                "object",
+                "string"
+            ],
+            "properties": {
+                "kind": {
+                    "type": "string"
+                }
+            }
+        },
+        "registry": {
+            "type": "object",
+            "properties": {
+                "domain": {
+                    "type": "string"
+                },
+                "pullSecret": {
+                    "type": "object",
+                    "properties": {
+                        "dockerConfigJSON": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "secret": {
+            "type": "object",
+            "properties": {
+                "firestoreServiceAccountKey": {
+                    "type": "string"
+                }
+            }
+        },
+        "security": {
+            "type": "object",
+            "properties": {
+                "subnet": {
+                    "type": "object",
+                    "properties": {
+                        "customer": {
+                            "type": "object",
+                            "properties": {
+                                "private": {
+                                    "type": "string"
+                                },
+                                "public": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "restrictAccess": {
+                            "type": "object",
+                            "properties": {
+                                "gsAPI": {
+                                    "type": "boolean"
+                                }
+                            }
+                        },
+                        "vpn": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "services": {
+            "type": "object",
+            "properties": {
+                "athena": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "type": "string"
+                        },
+                        "host": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "happa": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "userID": {
+            "type": "integer"
+        }
+    }
+}

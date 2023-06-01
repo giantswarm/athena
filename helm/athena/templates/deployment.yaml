@@ -4,19 +4,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ .Values.name }}
   labels:
-    app: {{ .Values.name }}
+    {{- include "athena.labels.common" . | nindent 4 }}
 spec:
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      {{- include "athena.labels.selector" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        {{- include "athena.labels.common" . | nindent 8 }}
       annotations:
         releaseRevision: {{ .Release.Revision | quote }}
     spec:
@@ -27,20 +27,41 @@ spec:
           items:
           - key: config.yaml
             path: config.yaml
+      - name: "{{ .Values.name }}-secret"
+        secret:
+          secretName: "{{ .Values.name }}-secret"
+          items:
+          - key: secret.yaml
+            path: secret.yaml
       securityContext:
         runAsUser: {{ .Values.userID }}
         runAsGroup: {{ .Values.groupID }}
+        {{- with .Values.podSecurityContext }}
+          {{- . | toYaml | nindent 8 }}
+        {{- end }}
       containers:
       - name: {{ .Values.image.name }}
-        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
         imagePullPolicy: Always
+        env:
+        - name: ATHENA_KUBERNETES_CACERT
+          valueFrom:
+            configMapKeyRef:
+              name: "kube-root-ca.crt"
+              key: "ca.crt"
         args:
         - "daemon"
-        - "--config-dir=/var/run/athena/configmap/"
+        - "--config-dir=/var/run/{{ .Values.name }}/configmap/"
         - "--config-file=config"
+        - "--secret-dir=/var/run/{{ .Values.name }}/secret/"
+        - "--secret-file=secret"
         ports:
         - containerPort: 8000
           name: http
+        securityContext:
+          {{- with .Values.securityContext }}
+            {{- . | toYaml | nindent 10 }}
+          {{- end }}
         resources:
           requests:
             cpu: 100m
@@ -50,7 +71,10 @@ spec:
             memory: 250Mi
         volumeMounts:
         - name: "{{ .Values.name }}-configmap"
-          mountPath: /var/run/athena/configmap/
+          mountPath: "/var/run/{{ .Values.name }}/configmap/"
+          readOnly: true
+        - name: "{{ .Values.name }}-secret"
+          mountPath: "/var/run/{{ .Values.name }}/secret/"
           readOnly: true
         livenessProbe:
           httpGet:
