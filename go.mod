@@ -5,14 +5,14 @@ go 1.19
 require (
 	cloud.google.com/go/firestore v1.10.0
 	firebase.google.com/go v3.13.0+incompatible
-	github.com/99designs/gqlgen v0.17.31
+	github.com/99designs/gqlgen v0.17.32
 	github.com/giantswarm/microerror v0.4.0
 	github.com/google/go-cmp v0.5.9
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
-	github.com/vektah/gqlparser/v2 v2.5.1
+	github.com/vektah/gqlparser/v2 v2.5.3
 	go.uber.org/zap v1.24.0
-	google.golang.org/api v0.125.0
+	google.golang.org/api v0.127.0
 )
 
 require (
@@ -28,7 +28,7 @@ require (
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/s2a-go v0.1.4 // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/googleapis/enterprise-certificate-proxy v0.2.3 // indirect
+	github.com/googleapis/enterprise-certificate-proxy v0.2.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.10.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.1 // indirect
@@ -73,7 +73,7 @@ replace (
 	golang.org/x/net => golang.org/x/net v0.10.0
 
 	// CVE-2022-32149
-	golang.org/x/text => golang.org/x/text v0.9.0
+	golang.org/x/text => golang.org/x/text v0.10.0
 
 	// CVE-2022-28948
 	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
