@@ -11,7 +11,8 @@ metadata:
     {{- include "athena.labels.common" . | nindent 4 }}
   annotations:
     {{- if .Values.ingress.tls.letsencrypt }}
-    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
+    cert-manager.io/cluster-issuer: letsencrypt-giantswarm-cilium
+    kubernetes.io/ingress.class: cilium
     {{- else if ne .Values.ingress.tls.clusterIssuer "" }}
     cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.clusterIssuer }}
     {{- end }}
@@ -27,7 +28,7 @@ metadata:
     giantswarm.io/external-dns: managed
     {{- end }}
 spec:
-  ingressClassName: nginx
+  ingressClassName: cilium
   rules:
   {{- if .Values.services.athena.host }}
   - host: {{ .Values.services.athena.host }}
