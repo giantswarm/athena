@@ -5,7 +5,7 @@ go 1.19
 require (
 	cloud.google.com/go/firestore v1.10.0
 	firebase.google.com/go v3.13.0+incompatible
-	github.com/99designs/gqlgen v0.17.32
+	github.com/99designs/gqlgen v0.17.33
 	github.com/giantswarm/microerror v0.4.0
 	github.com/google/go-cmp v0.5.9
 	github.com/spf13/cobra v1.7.0
@@ -31,7 +31,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.2.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.10.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
-	github.com/hashicorp/golang-lru/v2 v2.0.1 // indirect
+	github.com/hashicorp/golang-lru/v2 v2.0.3 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/magiconair/properties v1.8.7 // indirect
@@ -45,15 +45,15 @@ require (
 	go.opencensus.io v0.24.0 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	go.uber.org/multierr v1.8.0 // indirect
-	golang.org/x/crypto v0.9.0 // indirect
-	golang.org/x/mod v0.8.0 // indirect
+	golang.org/x/crypto v0.10.0 // indirect
+	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.10.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
+	golang.org/x/sys v0.9.0 // indirect
+	golang.org/x/text v0.10.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
-	golang.org/x/tools v0.6.0 // indirect
+	golang.org/x/tools v0.9.3 // indirect
 	golang.org/x/xerrors v0.0.0-20220907171357-04be3eba64a2 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230530153820-e85fd2cbaebc // indirect
@@ -70,7 +70,7 @@ replace (
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.21.0
 
 	// CVE-2022-27664
-	golang.org/x/net => golang.org/x/net v0.10.0
+	golang.org/x/net => golang.org/x/net v0.11.0
 
 	// CVE-2022-32149
 	golang.org/x/text => golang.org/x/text v0.10.0
