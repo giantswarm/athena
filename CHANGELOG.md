@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Remove obsolete 'fixJob' that replaces certificate secrets in certain situation.
 - Stop pushing to `openstack-app-collection`.
+- Remove pull secret.
 
 ## [1.9.4] - 2023-04-27
 

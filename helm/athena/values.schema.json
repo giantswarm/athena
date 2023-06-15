@@ -119,14 +119,6 @@
             "properties": {
                 "domain": {
                     "type": "string"
-                },
-                "pullSecret": {
-                    "type": "object",
-                    "properties": {
-                        "dockerConfigJSON": {
-                            "type": "string"
-                        }
-                    }
                 }
             }
         },

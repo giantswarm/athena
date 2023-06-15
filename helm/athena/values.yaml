@@ -59,8 +59,6 @@ secret:
 # generic configuration
 registry:
   domain: docker.io
-  pullSecret:
-    dockerConfigJSON: ""
 
 podSecurityContext:
   seccompProfile:
