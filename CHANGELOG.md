@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add template function to determine cluster codename
+
 ### Removed
 
 - Remove obsolete 'fixJob' that replaces certificate secrets in certain situation.
