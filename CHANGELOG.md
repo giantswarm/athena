@@ -7,14 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+
 ### Changed
 
 - Add template function to determine cluster codename
+
+## [1.10.0] - 2023-06-15
+
 
 ### Removed
 
 - Remove obsolete 'fixJob' that replaces certificate secrets in certain situation.
 - Stop pushing to `openstack-app-collection`.
+- Remove pull secret.
 
 ## [1.9.4] - 2023-04-27
 
@@ -228,7 +233,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.9.4...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.10.0...HEAD
+[1.10.0]: https://github.com/giantswarm/athena/compare/v1.9.4...v1.10.0
 [1.9.4]: https://github.com/giantswarm/athena/compare/v1.9.3...v1.9.4
 [1.9.3]: https://github.com/giantswarm/athena/compare/v1.9.2...v1.9.3
 [1.9.2]: https://github.com/giantswarm/athena/compare/v1.9.1...v1.9.2

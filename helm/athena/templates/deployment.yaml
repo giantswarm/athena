@@ -90,8 +90,6 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 1
-      imagePullSecrets:
-      - name: "{{ .Values.name }}-pull-secret"
       serviceAccountName: {{ .Values.name }}
       affinity:
         podAntiAffinity:
