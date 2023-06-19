@@ -39,3 +39,19 @@ giantswarm.io/service-type: "managed"
 {{- join "," $CIDRs.whitelist -}}
 
 {{- end -}}
+
+{{- define "installationCodename" -}}
+{{- if and (eq (kindOf .Values.managementCluster) "string") .Values.clusterID  .Values.managementCluster -}}
+{{- printf "%s-%s" .Values.managementCluster .Values.clusterID -}}
+{{- else if and (eq (kindOf .Values.managementCluster) "string") .Values.managementCluster -}}
+{{- .Values.managementCluster | quote -}}
+{{- else if and (eq (kindOf .Values.managementCluster) "string") .Values.clusterID -}}
+{{- .Values.clusterID | quote -}}
+{{- else if and .Values.clusterID .Values.managementCluster.name -}}
+{{- printf "%s-%s" .Values.managementCluster.name .Values.clusterID -}}
+{{- else if .Values.clusterID -}}
+{{- .Values.clusterID | quote -}}
+{{- else -}}
+{{- .Values.managementCluster.name | quote -}}
+{{- end -}}
+{{- end -}}
