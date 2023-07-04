@@ -59,6 +59,11 @@ spec:
         - containerPort: 8000
           name: http
         securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          capabilities:
+            drop:
+              - ALL
           {{- with .Values.securityContext }}
             {{- . | toYaml | nindent 10 }}
           {{- end }}
