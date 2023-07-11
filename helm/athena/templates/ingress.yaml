@@ -27,7 +27,7 @@ metadata:
     giantswarm.io/external-dns: managed
     {{- end }}
 spec:
-  ingressClassName: nginx
+  ingressClassName: {{ .Values.ingress.ingressClassName }}
   rules:
   {{- if .Values.services.athena.host }}
   - host: {{ .Values.services.athena.host }}
