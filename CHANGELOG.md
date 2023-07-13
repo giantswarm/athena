@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.3] - 2023-07-13
+
 ### Changed
 
 - Make `ingressClassName` configurable
@@ -244,7 +246,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.10.2...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.10.3...HEAD
+[1.10.3]: https://github.com/giantswarm/athena/compare/v1.10.2...v1.10.3
 [1.10.2]: https://github.com/giantswarm/athena/compare/v1.10.1...v1.10.2
 [1.10.1]: https://github.com/giantswarm/athena/compare/v1.10.0...v1.10.1
 [1.10.0]: https://github.com/giantswarm/athena/compare/v1.9.4...v1.10.0
