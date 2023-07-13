@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Make `ingressClassName` configurable
+
 ## [1.10.2] - 2023-07-04
 
 ### Changed
