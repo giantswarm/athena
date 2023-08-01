@@ -23,6 +23,7 @@ kubernetes:
   caPem: ""
   api:
     address: ""
+    port: 443
 
 managementCluster:
   name: ""
