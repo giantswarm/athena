@@ -22,7 +22,7 @@ data:
       {{- if .Values.kubernetes.api.address }}
       apiUrl: "{{ .Values.kubernetes.api.address }}"
       {{- else }}
-      apiUrl: "https://api.{{ .Values.baseDomain }}"
+      apiUrl: "https://api.{{ .Values.baseDomain }}:{{ .Values.kubernetes.api.port }}"
       {{- end }}
       {{- if .Values.oidc.issuerAddress }}
       authUrl: "{{ .Values.oidc.issuerAddress }}"
