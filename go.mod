@@ -3,7 +3,7 @@ module github.com/giantswarm/athena
 go 1.19
 
 require (
-	cloud.google.com/go/firestore v1.11.0
+	cloud.google.com/go/firestore v1.12.0
 	firebase.google.com/go v3.13.0+incompatible
 	github.com/99designs/gqlgen v0.17.36
 	github.com/giantswarm/microerror v0.4.0
@@ -11,7 +11,7 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 	github.com/vektah/gqlparser/v2 v2.5.8
-	go.uber.org/zap v1.24.0
+	go.uber.org/zap v1.25.0
 	google.golang.org/api v0.134.0
 )
 
@@ -43,8 +43,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.2 // indirect
 	go.opencensus.io v0.24.0 // indirect
-	go.uber.org/atomic v1.9.0 // indirect
-	go.uber.org/multierr v1.8.0 // indirect
+	go.uber.org/multierr v1.10.0 // indirect
 	golang.org/x/crypto v0.11.0 // indirect
 	golang.org/x/mod v0.10.0 // indirect
 	golang.org/x/net v0.12.0 // indirect
@@ -70,7 +69,7 @@ replace (
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.23.0
 
 	// CVE-2022-27664
-	golang.org/x/net => golang.org/x/net v0.12.0
+	golang.org/x/net => golang.org/x/net v0.13.0
 
 	// CVE-2022-32149
 	golang.org/x/text => golang.org/x/text v0.11.0
