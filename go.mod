@@ -11,8 +11,8 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.16.0
 	github.com/vektah/gqlparser/v2 v2.5.9
-	go.uber.org/zap v1.25.0
-	google.golang.org/api v0.140.0
+	go.uber.org/zap v1.26.0
+	google.golang.org/api v0.141.0
 )
 
 require (
