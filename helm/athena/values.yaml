@@ -60,7 +60,7 @@ secret:
 
 # generic configuration
 registry:
-  domain: docker.io
+  domain: quay.io
 
 podSecurityContext:
   seccompProfile:

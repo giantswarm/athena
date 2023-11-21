@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Use quay.io instead of docker.io in helm chart
+
 ## [1.12.0] - 2023-10-02
 
 ## Changed
