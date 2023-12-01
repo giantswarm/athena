@@ -6,7 +6,7 @@ require (
 	cloud.google.com/go/firestore v1.14.0
 	firebase.google.com/go v3.13.0+incompatible
 	github.com/99designs/gqlgen v0.17.40
-	github.com/giantswarm/microerror v0.4.0
+	github.com/giantswarm/microerror v0.4.1
 	github.com/google/go-cmp v0.6.0
 	github.com/spf13/cobra v1.7.0
 	github.com/spf13/viper v1.17.0
@@ -72,6 +72,8 @@ replace (
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.25.1
 
+	github.com/nats-io/nkeys v0.4.5 => github.com/nats-io/nkeys v0.4.6
+
 	// CVE-2022-27664
 	golang.org/x/net => golang.org/x/net v0.17.0
 
@@ -80,4 +82,5 @@ replace (
 
 	// CVE-2022-28948
 	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
+
 )
