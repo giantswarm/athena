@@ -72,6 +72,8 @@ replace (
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
 	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.25.1
 
+	github.com/nats-io/nkeys v0.4.5 => github.com/nats-io/nkeys v0.4.6
+
 	// CVE-2022-27664
 	golang.org/x/net => golang.org/x/net v0.17.0
 
@@ -80,4 +82,5 @@ replace (
 
 	// CVE-2022-28948
 	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
+
 )
