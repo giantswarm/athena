@@ -1,12 +1,12 @@
 version: 2.1
+
 orbs:
-  architect: giantswarm/architect@4.35.5
+  architect: giantswarm/architect@4.35.6
 
 workflows:
-  build:
+  test:
     jobs:
       - architect/go-build:
-          context: architect
           name: go-build
           binary: athena
           filters:
@@ -23,20 +23,19 @@ workflows:
               only: /^v.*/
 
       - architect/push-to-app-catalog:
-          name: push-athena-to-control-plane-app-catalog
-          executor: app-build-suite
-          persist_chart_archive: true
           context: architect
+          name: push-athena-to-control-plane-app-catalog
           app_catalog: "control-plane-catalog"
           app_catalog_test: "control-plane-test-catalog"
           chart: "athena"
-          requires:
-            - push-to-registries
+          executor: "app-build-suite"
+          persist_chart_archive: true
+          # Trigger job on git tag.
           filters:
             tags:
               only: /^v.*/
-
-      # deploy to aws installations (only tags)
+          requires:
+            - push-to-registries
       - architect/push-to-app-collection:
           name: push-athena-to-aws-app-collection
           context: architect
@@ -50,7 +49,6 @@ workflows:
             tags:
               only: /^v.*/
 
-      # deploy to azure installations (only tags)
       - architect/push-to-app-collection:
           name: push-athena-to-azure-app-collection
           context: architect
@@ -63,7 +61,19 @@ workflows:
               ignore: /.*/
             tags:
               only: /^v.*/
-      # deploy to vsphere installations (only tags)
+
+      - architect/push-to-app-collection:
+          name: push-athena-to-capa-app-collection
+          context: architect
+          app_name: "athena"
+          app_collection_repo: "capa-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
 
       - architect/push-to-app-collection:
           name: push-athena-to-vsphere-app-collection
@@ -78,9 +88,46 @@ workflows:
             tags:
               only: /^v.*/
 
-      - architect/push-to-app-collection:
-          name: push-to-capa-app-collection
+      - architect/push-to-app-catalog:
           context: architect
+          name: push-athena-to-giantswarm-catalog
+          app_catalog: "giantswarm-catalog"
+          app_catalog_test: "giantswarm-test-catalog"
+          chart: "athena"
+          executor: "app-build-suite"
+          # Trigger job on git tag.
+          filters:
+            tags:
+              only: /^v.*/
+          requires:
+            - push-to-registries
+      - architect/run-tests-with-ats:
+          name: execute chart tests
+          filters:
+            # Do not trigger the job on merge to main.
+            branches:
+              ignore:
+                - main
+          requires:
+            - push-athena-to-control-plane-app-catalog
+
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-cloud-director-app-collection
+          app_name: "athena"
+          app_collection_repo: cloud-director-app-collection
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-capa-app-collection
           app_name: "athena"
           app_collection_repo: "capa-app-collection"
           requires:
@@ -91,31 +138,6 @@ workflows:
             tags:
               only: /^v.*/
 
-      - architect/push-to-app-collection:
-          context: architect
-          name: push-to-cloud-director-app-collection
-          app_name: "athena"
-          app_collection_repo: "cloud-director-app-collection"
-          requires:
-            - push-athena-to-control-plane-app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-app-collection:
-          context: architect
-          name: push-to-capz-app-collection
-          app_name: "athena"
-          app_collection_repo: "capz-app-collection"
-          requires:
-            - push-athena-to-control-plane-app-catalog
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^v.*/
       - architect/push-to-app-collection:
           context: architect
           name: push-to-gcp-app-collection
@@ -129,13 +151,27 @@ workflows:
             tags:
               only: /^v.*/
 
-      - architect/run-tests-with-ats:
-          name: execute chart tests
-          app-test-suite_version: v0.4.1
-          app-test-suite_container_tag: 0.4.1
-          filters:
-            branches:
-              ignore:
-                - main
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-kvm-app-collection
+          app_name: "athena"
+          app_collection_repo: "kvm-app-collection"
           requires:
             - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
+      - architect/push-to-app-collection:
+          context: architect
+          name: push-to-capz-app-collection
+          app_name: "athena"
+          app_collection_repo: "capz-app-collection"
+          requires:
+            - push-athena-to-control-plane-app-catalog
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^v.*/
