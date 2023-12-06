@@ -8,14 +8,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Changed
-- Updated `github.com/nats-io/nkeys` to `v0.4.6` to address CVE-2023-46129, resolving the issue of using a hard-coded cryptographic key in the nkeys library.
 
+- Configure `gsoci.azurecr.io` as the default container image registry.
+- Updated `github.com/nats-io/nkeys` to `v0.4.6` to address CVE-2023-46129, resolving the issue of using a hard-coded cryptographic key in the nkeys library.
 ### Security
 - Resolved a high-severity security vulnerability (CVE-2023-46129) associated with `github.com/nats-io/nkeys` by updating to version `v0.4.6`. This update ensures enhanced security in cryptographic key handling.
-
 ### Dependencies
 - Updated dependencies to ensure compatibility and security with the latest `nkeys` version.
-
 
 ## [1.12.0] - 2023-10-02
 
@@ -238,7 +237,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Fix a bug in certs secret.
-
 
 ## [1.2.0] - 2021-07-13
 
