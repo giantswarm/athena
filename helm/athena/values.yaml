@@ -60,7 +60,7 @@ secret:
 
 # generic configuration
 registry:
-  domain: docker.io
+  domain: gsoci.azurecr.io
 
 podSecurityContext:
   seccompProfile:
