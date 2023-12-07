@@ -3,6 +3,8 @@ from contextlib import contextmanager
 from pathlib import Path
 from typing import Dict, List
 
+import os
+
 import pykube
 import pytest
 from pytest_helm_charts.clusters import Cluster
@@ -25,6 +27,8 @@ def test_api_working(kube_cluster: Cluster) -> None:
     Please refer to [pykube](https://pykube.readthedocs.io/en/latest/api/pykube.html) to get docs
     for [HTTPClient](https://pykube.readthedocs.io/en/latest/api/pykube.html#pykube.http.HTTPClient).
     """
+    print(f"KUBECONFIG: {os.getenv('KUBECONFIG')}")
+
     assert kube_cluster.kube_client is not None
     assert len(pykube.Node.objects(kube_cluster.kube_client)) >= 1
 
