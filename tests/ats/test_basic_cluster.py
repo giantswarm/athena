@@ -1,7 +1,5 @@
 import logging
-from contextlib import contextmanager
-from pathlib import Path
-from typing import Dict, List
+from typing import List
 
 import pykube
 import pytest
