@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  architect: giantswarm/architect@4.31.0
+  architect: giantswarm/architect@4.35.5
 
 workflows:
   test:
@@ -13,28 +13,11 @@ workflows:
             tags:
               only: /^v.*/
 
-      - architect/push-to-docker:
-          name: push-athena-to-quay
+      - architect/push-to-registries:
           context: architect
-          image: "quay.io/giantswarm/athena"
-          username_envar: "QUAY_USERNAME"
-          password_envar: "QUAY_PASSWORD"
+          name: push-to-registries
           requires:
             - go-build
-          # Needed to trigger job also on git tag.
-          filters:
-            tags:
-              only: /^v.*/
-
-      - architect/push-to-docker:
-          context: architect
-          name: push-athena-to-aliyun
-          image: "giantswarm-registry.cn-shanghai.cr.aliyuncs.com/giantswarm/athena"
-          username_envar: "ALIYUN_USERNAME"
-          password_envar: "ALIYUN_PASSWORD"
-          requires:
-            - go-build
-          # Needed to trigger job also on git tag.
           filters:
             tags:
               only: /^v.*/
@@ -52,8 +35,7 @@ workflows:
             tags:
               only: /^v.*/
           requires:
-            - push-athena-to-quay
-
+            - push-to-registries
       - architect/push-to-app-collection:
           name: push-athena-to-aws-app-collection
           context: architect
@@ -118,8 +100,7 @@ workflows:
             tags:
               only: /^v.*/
           requires:
-            - push-athena-to-quay
-
+            - push-to-registries
       - architect/run-tests-with-ats:
           name: execute chart tests
           filters:
