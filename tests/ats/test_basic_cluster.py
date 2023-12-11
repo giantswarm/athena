@@ -1,7 +1,5 @@
 import logging
-from contextlib import contextmanager
-from pathlib import Path
-from typing import Dict, List
+from typing import List
 
 import pykube
 import pytest
@@ -27,19 +25,6 @@ def test_api_working(kube_cluster: Cluster) -> None:
     """
     assert kube_cluster.kube_client is not None
     assert len(pykube.Node.objects(kube_cluster.kube_client)) >= 1
-
-
-@pytest.mark.smoke
-def test_cluster_info(
-    kube_cluster: Cluster, cluster_type: str, chart_extra_info: Dict[str, str]
-) -> None:
-    """Example shows how you can access additional information about the cluster the tests are running on"""
-    logger.info(f"Running on cluster type {cluster_type}")
-    key = "external_cluster_type"
-    if key in chart_extra_info:
-        logger.info(f"{key} is {chart_extra_info[key]}")
-    assert kube_cluster.kube_client is not None
-    assert cluster_type != ""
 
 
 # scope "module" means this is run only once, for the first test case requesting! It might be tricky
