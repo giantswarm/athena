@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.1] - 2023-12-11
+
 ### Changed
 
 - Configure `gsoci.azurecr.io` as the default container image registry.
@@ -266,7 +268,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.0...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.1...HEAD
+[1.12.1]: https://github.com/giantswarm/athena/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/giantswarm/athena/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/giantswarm/athena/compare/v1.10.3...v1.11.0
 [1.10.3]: https://github.com/giantswarm/athena/compare/v1.10.2...v1.10.3
