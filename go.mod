@@ -77,7 +77,7 @@ require (
 
 replace (
 	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
-	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.27.0
+	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.28.2
 
 	github.com/nats-io/nkeys v0.4.5 => github.com/nats-io/nkeys v0.4.6
 
