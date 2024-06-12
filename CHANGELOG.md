@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.2] - 2024-06-12
+
 ### Changed
 
 - Default clusterIssuer to letsencrypt-giantswarm and update ingress annotation
@@ -272,7 +274,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.1...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.2...HEAD
+[1.12.2]: https://github.com/giantswarm/athena/compare/v1.12.1...v1.12.2
 [1.12.1]: https://github.com/giantswarm/athena/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/giantswarm/athena/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/giantswarm/athena/compare/v1.10.3...v1.11.0
