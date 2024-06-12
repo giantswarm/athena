@@ -15,7 +15,7 @@ ingress:
   externalDNS: false
   tls:
     letsencrypt: true
-    clusterIssuer: ""
+    clusterIssuer: "letsencrypt-giantswarm"
     crtPemB64: ""
     keyPemB64: ""
 

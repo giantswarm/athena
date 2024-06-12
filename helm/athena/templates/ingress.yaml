@@ -10,11 +10,7 @@ metadata:
   labels:
     {{- include "athena.labels.common" . | nindent 4 }}
   annotations:
-    {{- if .Values.ingress.tls.letsencrypt }}
-    cert-manager.io/cluster-issuer: letsencrypt-giantswarm
-    {{- else if ne .Values.ingress.tls.clusterIssuer "" }}
     cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.clusterIssuer }}
-    {{- end }}
     {{- if .Values.security.subnet.restrictAccess.gsAPI }}
     nginx.ingress.kubernetes.io/whitelist-source-range: {{ template "whitelistCIDR" . }}
     {{- end }}

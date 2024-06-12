@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Default clusterIssuer to letsencrypt-giantswarm and update ingress annotation
+
 ## [1.12.1] - 2023-12-11
 
 ### Changed
