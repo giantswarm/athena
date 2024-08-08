@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Change ImagePullPolicy from Always to IfNotPresent to reduce image network traffic.
 
+## [1.12.3] - 2024-07-30
+
+### Changed
+
+- Bump architect-orb@5.3.1 to fix CVE-2024-24790.
+
 ## [1.12.2] - 2024-06-12
 
 ### Changed
@@ -278,7 +284,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.2...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.3...HEAD
+[1.12.3]: https://github.com/giantswarm/athena/compare/v1.12.2...v1.12.3
 [1.12.2]: https://github.com/giantswarm/athena/compare/v1.12.1...v1.12.2
 [1.12.1]: https://github.com/giantswarm/athena/compare/v1.12.0...v1.12.1
 [1.12.0]: https://github.com/giantswarm/athena/compare/v1.11.0...v1.12.0
