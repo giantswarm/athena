@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Change ImagePullPolicy from Always to IfNotPresent to reduce image network traffic.
+
 ## [1.12.3] - 2024-07-30
 
 ### Changed
