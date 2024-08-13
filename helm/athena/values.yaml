@@ -75,4 +75,4 @@ graphql:
 
 global:
   podSecurityStandards:
-    enforced: true
+    enforced: false
