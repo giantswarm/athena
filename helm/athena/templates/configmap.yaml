@@ -11,6 +11,9 @@ data:
       allowedOrigins:
       - "{{ .Values.services.happa.address }}"
       listenAddress: "0.0.0.0:8000"
+      {{- if .Values.graphql }}
+      enableIntrospection: {{ .Values.graphql.enableIntrospection }}
+      {{- end }}
     identity:
       {{- if (eq (kindOf .Values.provider) "string") }}
       provider: "{{ .Values.provider }}"

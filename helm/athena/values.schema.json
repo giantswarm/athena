@@ -31,7 +31,18 @@
                     }
                 }
             }
-        },        
+        },
+        "graphql": {
+            "type": "object",
+            "properties": {
+                "enableIntrospection": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "enableIntrospection"
+            ]
+        },
         "groupID": {
             "type": "integer"
         },
