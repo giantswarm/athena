@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Made GraphQL introspection configurable and disabled by default
+
 ### Changed
 
 - Change ImagePullPolicy from Always to IfNotPresent to reduce image network traffic.

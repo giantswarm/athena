@@ -12,6 +12,7 @@ import (
 	"github.com/giantswarm/athena/pkg/analytics"
 	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/resolver"
+	graphqlserver "github.com/giantswarm/athena/pkg/graph/server"
 	"github.com/giantswarm/athena/pkg/server/middleware"
 )
 
@@ -31,6 +32,8 @@ type Config struct {
 	InstallationK8sCaCert    string
 	AnalyticsEnv             string
 	AnalyticsCredentialsJSON string
+
+	EnableIntrospection bool
 }
 
 type Server struct {
@@ -45,6 +48,7 @@ type Server struct {
 	installationK8sCaCert    string
 	analyticsEnv             string
 	analyticsCredentialsJSON string
+	enableIntrospection      bool
 }
 
 func New(config Config) (*Server, error) {
@@ -69,6 +73,7 @@ func New(config Config) (*Server, error) {
 		installationK8sCaCert:    config.InstallationK8sCaCert,
 		analyticsEnv:             config.AnalyticsEnv,
 		analyticsCredentialsJSON: config.AnalyticsCredentialsJSON,
+		enableIntrospection:      config.EnableIntrospection,
 	}
 
 	return s, nil
@@ -125,7 +130,7 @@ func (s *Server) Boot() error {
 		schema := exec.NewExecutableSchema(exec.Config{
 			Resolvers: rootResolver,
 		})
-		graphQLServer = handler.NewDefaultServer(schema)
+		graphQLServer = graphqlserver.New(schema, s.enableIntrospection)
 	}
 
 	mux := http.NewServeMux()

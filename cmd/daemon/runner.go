@@ -72,6 +72,7 @@ func (r *runner) run(ctx context.Context, cmd *cobra.Command, args []string) err
 			Log:                      r.log,
 			AllowedOrigins:           r.viper.GetStringSlice("server.allowedOrigins"),
 			ListenAddress:            r.viper.GetString("server.listenAddress"),
+			EnableIntrospection:      r.viper.GetBool("server.enableIntrospection"),
 			InstallationProvider:     r.viper.GetString("identity.provider"),
 			InstallationCodename:     r.viper.GetString("identity.codename"),
 			InstallationK8sApiUrl:    r.viper.GetString("kubernetes.apiUrl"),
