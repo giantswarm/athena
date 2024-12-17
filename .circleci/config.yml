@@ -187,3 +187,16 @@ workflows:
             ignore: /.*/
           tags:
             only: /^v.*/
+
+    - architect/push-to-app-collection:
+        context: architect
+        name: push-to-proxmox-app-collection
+        app_name: athena
+        app_collection_repo: proxmox-app-collection
+        requires:
+        - push-athena-to-control-plane-app-catalog
+        filters:
+          branches:
+            ignore: /.*/
+          tags:
+            only: /^v.*/
