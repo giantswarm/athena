@@ -61,7 +61,7 @@ require (
 	golang.org/x/mod v0.18.0 // indirect
 	golang.org/x/net v0.27.0 // indirect
 	golang.org/x/oauth2 v0.22.0 // indirect
-	golang.org/x/sync v0.8.0 // indirect
+	golang.org/x/sync v0.10.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	golang.org/x/time v0.6.0 // indirect
@@ -74,21 +74,4 @@ require (
 	google.golang.org/protobuf v1.34.2 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-)
-
-replace (
-	github.com/gogo/protobuf => github.com/gogo/protobuf v1.3.2
-	github.com/hashicorp/consul/api => github.com/hashicorp/consul/api v1.29.2
-
-	github.com/nats-io/nkeys v0.4.5 => github.com/nats-io/nkeys v0.4.6
-
-	// CVE-2022-27664
-	golang.org/x/net => golang.org/x/net v0.33.0
-
-	// CVE-2022-32149
-	golang.org/x/text => golang.org/x/text v0.17.0
-
-	// CVE-2022-28948
-	gopkg.in/yaml.v3 => gopkg.in/yaml.v3 v3.0.1
-
 )
