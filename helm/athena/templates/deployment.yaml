@@ -78,9 +78,6 @@ spec:
         - name: "{{ .Values.name }}-configmap"
           mountPath: "/var/run/{{ .Values.name }}/configmap/"
           readOnly: true
-        - name: "{{ .Values.name }}-secret"
-          mountPath: "/var/run/{{ .Values.name }}/secret/"
-          readOnly: true
         livenessProbe:
           httpGet:
             path: /

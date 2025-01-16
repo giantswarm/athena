@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Removed analytics functionality, kept GraphQL API and optional Helm values for compatibility reasons.
+
 ### Changed
 
 - Changed ownership to Team Shield
