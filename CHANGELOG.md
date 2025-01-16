@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.13.0] - 2025-01-16
+
 ### Removed
 
 - Removed analytics functionality, kept GraphQL API and optional Helm values for compatibility reasons.
@@ -298,7 +300,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - First release.
 
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.12.4...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.13.0...HEAD
+[1.13.0]: https://github.com/giantswarm/athena/compare/v1.12.4...v1.13.0
 [1.12.4]: https://github.com/giantswarm/athena/compare/v1.12.3...v1.12.4
 [1.12.3]: https://github.com/giantswarm/athena/compare/v1.12.2...v1.12.3
 [1.12.2]: https://github.com/giantswarm/athena/compare/v1.12.1...v1.12.2
