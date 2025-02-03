@@ -152,14 +152,6 @@
                 }
             }
         },
-        "secret": {
-            "type": "object",
-            "properties": {
-                "firestoreServiceAccountKey": {
-                    "type": "string"
-                }
-            }
-        },
         "security": {
             "type": "object",
             "properties": {

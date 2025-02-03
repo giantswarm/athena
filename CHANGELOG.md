@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Removed unused chart value `.secret.firestoreServiceAccountKey` and `.secret`.
+
 ## [1.13.0] - 2025-01-16
 
 ### Removed

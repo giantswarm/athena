@@ -55,9 +55,6 @@ analytics:
   environmentType: ""
   credentialsJSON: ""
 
-secret:
-  firestoreServiceAccountKey: ""
-
 # generic configuration
 registry:
   domain: gsoci.azurecr.io
