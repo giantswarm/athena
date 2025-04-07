@@ -13,9 +13,9 @@ import (
 // Kubernetes is the resolver for the kubernetes field.
 func (r *queryResolver) Kubernetes(ctx context.Context) (*model.Kubernetes, error) {
 	k := &model.Kubernetes{
-		APIURL:  r.Resolver.installationK8sApiUrl,
-		AuthURL: r.Resolver.installationK8sAuthUrl,
-		CaCert:  r.Resolver.installationK8sCaCert,
+		APIURL:  r.installationK8sApiUrl,
+		AuthURL: r.installationK8sAuthUrl,
+		CaCert:  r.installationK8sCaCert,
 	}
 
 	return k, nil

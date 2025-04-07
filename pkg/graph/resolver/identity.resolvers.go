@@ -14,8 +14,8 @@ import (
 // Identity is the resolver for the identity field.
 func (r *queryResolver) Identity(ctx context.Context) (*model.Identity, error) {
 	i := &model.Identity{
-		Provider: r.Resolver.installationProvider,
-		Codename: r.Resolver.installationCodename,
+		Provider: r.installationProvider,
+		Codename: r.installationCodename,
 	}
 
 	return i, nil
