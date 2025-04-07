@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## Removed
+
+- Resolve golangci-lint v2 problems in athena by removing redundant explicit references to embedded Resolver struct fields to resolve staticcheck linter warning.
+
 ## [1.13.1] - 2025-02-03
 
 ### Removed
@@ -51,9 +55,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Configure `gsoci.azurecr.io` as the default container image registry.
 - Updated `github.com/nats-io/nkeys` to `v0.4.6` to address CVE-2023-46129, resolving the issue of using a hard-coded cryptographic key in the nkeys library.
+
 ### Security
+
 - Resolved a high-severity security vulnerability (CVE-2023-46129) associated with `github.com/nats-io/nkeys` by updating to version `v0.4.6`. This update ensures enhanced security in cryptographic key handling.
+
 ### Dependencies
+
 - Updated dependencies to ensure compatibility and security with the latest `nkeys` version.
 
 ## [1.12.0] - 2023-10-02
@@ -87,7 +95,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add template function to determine cluster codename
 
 ## [1.10.0] - 2023-06-15
-
 
 ### Removed
 
@@ -225,7 +232,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add schema validation for `values.yaml`.
 - Use `app-build-suite` to generate `application.giantswarm.io/metadata`.
 
-
 ### Changed
 
 - Allow missing `firestoreServiceAccountKey`.
@@ -267,7 +273,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.0] - 2021-08-26
 
-
 ### Changed
 
 - Update architect-orb to v4.1.0.
@@ -304,7 +309,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2021-04-12
 
 - First release.
-
 
 [Unreleased]: https://github.com/giantswarm/athena/compare/v1.13.1...HEAD
 [1.13.1]: https://github.com/giantswarm/athena/compare/v1.13.0...v1.13.1
