@@ -13,6 +13,10 @@ metadata:
     cert-manager.io/cluster-issuer: {{ .Values.ingress.tls.clusterIssuer }}
     {{- if .Values.security.subnet.restrictAccess.gsAPI }}
     nginx.ingress.kubernetes.io/whitelist-source-range: {{ template "whitelistCIDR" . }}
+    {{- else }}
+    {{- with .Values.ingress.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
     {{- end }}
     {{- if .Values.ingress.externalDNS }}
     {{- if .Values.services.athena.host }}

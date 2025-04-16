@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Make Ingress annotations configurable via values (`.Values.ingress.annotations`)
+
 ### Changed
 
 - Resolve golangci-lint v2 problems in athena by removing redundant explicit references to embedded Resolver struct fields to resolve staticcheck linter warning.
