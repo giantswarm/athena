@@ -85,6 +85,9 @@
                             "type": "boolean"
                         }
                     }
+                },
+                "annotations": {
+                    "type": "object"
                 }
             }
         },
