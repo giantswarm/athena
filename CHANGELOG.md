@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Add PodLogs for observability to collect logs.
+- Enable log collection for observability.
+
 ### Added
 
 - Make Ingress annotations configurable via values (`.Values.ingress.annotations`)
