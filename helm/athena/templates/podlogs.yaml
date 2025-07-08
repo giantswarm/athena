@@ -1,0 +1,100 @@
+{{- if .Values.monitoring.podLog.enabled }}
+---
+# PodLogs for athena
+apiVersion: monitoring.grafana.com/v1alpha2
+kind: PodLogs
+metadata:
+  name: athena-logs
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "athena.labels.common" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+    giantswarm.io/notes: "Log collection for Athena authentication service"
+spec:
+  selector:
+    matchLabels:
+      {{- include "athena.labels.selector" . | nindent 6 }}
+  relabelings:
+  - action: replace
+    replacement: giantswarm
+    targetLabel: giantswarm_observability_tenant
+  - action: replace
+    sourceLabels: [__meta_kubernetes_pod_node_name]
+    targetLabel: node_name
+  - action: replace
+    replacement: athena
+    targetLabel: component
+
+---
+# PodLogs for athena API (error logs only)
+apiVersion: monitoring.grafana.com/v1alpha2
+kind: PodLogs
+metadata:
+  name: athena-api-error-logs
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "athena.labels.common" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+    giantswarm.io/notes: "ERROR-ONLY log collection for Athena API"
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "athena.name" . }}
+      app.kubernetes.io/component: {{ include "athena.name" . }}
+  pipelineStages:
+  - match:
+      selector: '{component="athena"}'
+      stages:
+      - regex:
+          expression: '.*(?P<level>ERROR|FATAL|WARN|WARNING).*'
+      - labels:
+          level:
+      - drop:
+          expression: '(?i).*(info|debug|notice).*'
+          dropReason: "Filtering out non-error logs - Athena API may contain sensitive authentication data"
+  relabelings:
+  - action: replace
+    replacement: giantswarm
+    targetLabel: giantswarm_observability_tenant
+  - action: replace
+    sourceLabels: [__meta_kubernetes_pod_node_name]
+    targetLabel: node_name
+  - action: replace
+    replacement: athena-api
+    targetLabel: component
+
+{{- if .Values.authProxy.enabled }}
+---
+# PodLogs for athena auth proxy
+apiVersion: monitoring.grafana.com/v1alpha2
+kind: PodLogs
+metadata:
+  name: athena-auth-proxy-logs
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "athena.labels.common" . | nindent 4 }}
+  annotations:
+    meta.helm.sh/release-name: {{ .Release.Name }}
+    meta.helm.sh/release-namespace: {{ .Release.Namespace }}
+    giantswarm.io/notes: "Log collection for Athena authentication proxy"
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "athena.name" . }}-auth-proxy
+      app.kubernetes.io/component: auth-proxy
+  relabelings:
+  - action: replace
+    replacement: giantswarm
+    targetLabel: giantswarm_observability_tenant
+  - action: replace
+    sourceLabels: [__meta_kubernetes_pod_node_name]
+    targetLabel: node_name
+  - action: replace
+    replacement: athena-auth-proxy
+    targetLabel: component
+{{- end }}
+{{- end }}

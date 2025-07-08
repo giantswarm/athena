@@ -74,3 +74,8 @@ graphql:
 global:
   podSecurityStandards:
     enforced: false
+
+# Enable log collection for observability
+monitoring:
+  podLog:
+    enabled: true
