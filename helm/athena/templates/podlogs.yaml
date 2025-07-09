@@ -1,21 +1,21 @@
 {{- if and .Values.monitoring .Values.monitoring.podLog .Values.monitoring.podLog.enabled }}
 ---
-# PodLogs for dex
+# PodLogs for Athena
 apiVersion: monitoring.grafana.com/v1alpha2
 kind: PodLogs
 metadata:
-  name: dex-logs
+  name: athena-logs
   namespace: giantswarm
   labels:
-    app.kubernetes.io/name: dex
+    app.kubernetes.io/name: athena
   annotations:
-    giantswarm.io/notes: "Log collection for DEX identity provider"
+    giantswarm.io/notes: "Log collection for Athena security component"
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: dex
-      app.kubernetes.io/component: dex
-      app.kubernetes.io/instance: dex-app
+      app.kubernetes.io/name: athena
+      app.kubernetes.io/component: athena
+      app.kubernetes.io/instance: athena
   relabelings:
   - action: replace
     replacement: giantswarm
@@ -24,33 +24,6 @@ spec:
     sourceLabels: [__meta_kubernetes_pod_node_name]
     targetLabel: node_name
   - action: replace
-    replacement: dex
-    targetLabel: component
-
----
-# PodLogs for dex-operator
-apiVersion: monitoring.grafana.com/v1alpha2
-kind: PodLogs
-metadata:
-  name: dex-operator-logs
-  namespace: giantswarm
-  labels:
-    app.kubernetes.io/name: dex-operator
-  annotations:
-    giantswarm.io/notes: "Log collection for DEX operator"
-spec:
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: dex-operator
-      app.kubernetes.io/instance: dex-operator
-  relabelings:
-  - action: replace
-    replacement: giantswarm
-    targetLabel: giantswarm_observability_tenant
-  - action: replace
-    sourceLabels: [__meta_kubernetes_pod_node_name]
-    targetLabel: node_name
-  - action: replace
-    replacement: dex-operator
+    replacement: athena
     targetLabel: component
 {{- end }}
