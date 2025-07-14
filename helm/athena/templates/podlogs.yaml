@@ -9,7 +9,7 @@ metadata:
   labels:
     app.kubernetes.io/name: athena
   annotations:
-    giantswarm.io/notes: "Log collection for Athena security component"
+    giantswarm.io/notes: "Log collection for Athena metadata service"
 spec:
   selector:
     matchLabels:
