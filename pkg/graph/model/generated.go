@@ -33,3 +33,9 @@ type Kubernetes struct {
 	AuthURL string `json:"authUrl"`
 	CaCert  string `json:"caCert"`
 }
+
+type Mutation struct {
+}
+
+type Query struct {
+}
