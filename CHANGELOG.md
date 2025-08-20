@@ -13,9 +13,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Resolve golangci-lint v2 problems in athena by removing redundant explicit references to embedded Resolver struct fields to resolve staticcheck linter warning.
+- Resolve golangci-lint v2 linter warnings.
 - Use alpine base image from gsoci.azurecr.io instead of quay.io.
 - Disable Pod Security Policy (PSP) by default.
+- Update to Go 1.24.
+- Various dependency updates.
 
 ## [1.13.1] - 2025-02-03
 
