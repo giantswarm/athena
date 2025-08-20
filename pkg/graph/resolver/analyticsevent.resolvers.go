@@ -9,10 +9,11 @@ import (
 	"encoding/json"
 	"time"
 
+	"github.com/giantswarm/microerror"
+
 	"github.com/giantswarm/athena/pkg/analytics"
 	"github.com/giantswarm/athena/pkg/graph/exec"
 	"github.com/giantswarm/athena/pkg/graph/model"
-	"github.com/giantswarm/microerror"
 )
 
 // CreateAnalyticsEvent is the resolver for the createAnalyticsEvent field.
