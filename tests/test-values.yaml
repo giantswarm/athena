@@ -5,3 +5,8 @@ managementCluster:
   name: example
 clusterID: test1
 baseDomain: test1.example.io
+
+monitoring:
+  podLogs:
+    # PodLogs CRD doesn't exist in the ATS test environment.
+    enabled: false
