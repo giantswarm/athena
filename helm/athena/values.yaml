@@ -79,3 +79,4 @@ global:
 monitoring:
   podLogs:
     enabled: true
+    tenant: giantswarm
