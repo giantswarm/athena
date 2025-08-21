@@ -1,0 +1,25 @@
+{{- if and .Values.monitoring .Values.monitoring.podLogs .Values.monitoring.podLogs.enabled }}
+apiVersion: monitoring.grafana.com/v1alpha2
+kind: PodLogs
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Values.name }}
+  labels:
+    {{- include "athena.labels.common" . | nindent 4 }}
+  annotations:
+    giantswarm.io/notes: "Log collection for Athena metadata service"
+spec:
+  selector:
+    matchLabels:
+      {{- include "athena.labels.selector" . | nindent 6 }}
+  relabelings:
+  - action: replace
+    replacement: {{ .Values.monitoring.podLogs.tenant }}
+    targetLabel: giantswarm_observability_tenant
+  - action: replace
+    sourceLabels: [__meta_kubernetes_pod_node_name]
+    targetLabel: node_name
+  - action: replace
+    replacement: athena
+    targetLabel: component
+{{- end }}

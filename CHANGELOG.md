@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Resolve golangci-lint v2 linter warnings.
+- Enable observability platform log collection.
 - Use alpine base image from gsoci.azurecr.io instead of quay.io.
 - Disable Pod Security Policy (PSP) by default.
 - Update to Go 1.24.

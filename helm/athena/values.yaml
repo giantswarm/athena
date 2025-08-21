@@ -74,3 +74,8 @@ graphql:
 global:
   podSecurityStandards:
     enforced: true
+
+monitoring:
+  podLogs:
+    enabled: true
+    tenant: giantswarm
