@@ -3,7 +3,7 @@ module github.com/giantswarm/athena
 go 1.24.6
 
 require (
-	github.com/99designs/gqlgen v0.17.79
+	github.com/99designs/gqlgen v0.17.80
 	github.com/giantswarm/microerror v0.4.1
 	github.com/google/go-cmp v0.7.0
 	github.com/spf13/cobra v1.10.1
