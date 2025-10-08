@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Removed the configuration values `letsencrypt`, `crtPemB64` and `keyPemB64`. These are not used and private certificates are configured from cert-manager.
+
 ## [1.14.0] - 2025-08-21
 
 ### Added
