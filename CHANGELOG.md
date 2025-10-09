@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.14.1] - 2025-10-08
+
 ### Removed
 
 - Removed the configuration values `letsencrypt`, `crtPemB64` and `keyPemB64`. These are not used and private certificates are configured from cert-manager.
@@ -325,7 +327,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - First release.
 
-[Unreleased]: https://github.com/giantswarm/athena/compare/v1.14.0...HEAD
+[Unreleased]: https://github.com/giantswarm/athena/compare/v1.14.1...HEAD
+[1.14.1]: https://github.com/giantswarm/athena/compare/v1.14.0...v1.14.1
 [1.14.0]: https://github.com/giantswarm/athena/compare/v1.13.1...v1.14.0
 [1.13.1]: https://github.com/giantswarm/athena/compare/v1.13.0...v1.13.1
 [1.13.0]: https://github.com/giantswarm/athena/compare/v1.12.4...v1.13.0
