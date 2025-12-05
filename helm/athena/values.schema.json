@@ -63,6 +63,10 @@
         "ingress": {
             "type": "object",
             "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable the legacy Ingress resource (set to false when using Gateway API)"
+                },
                 "externalDNS": {
                     "type": "boolean"
                 },
@@ -79,6 +83,74 @@
                 },
                 "annotations": {
                     "type": "object"
+                }
+            }
+        },
+        "route": {
+            "type": "object",
+            "description": "Gateway API HTTPRoute configuration",
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable the HTTPRoute resource for Gateway API"
+                },
+                "kind": {
+                    "type": "string",
+                    "description": "Route kind (HTTPRoute, GRPCRoute, TCPRoute, TLSRoute, UDPRoute)",
+                    "enum": ["HTTPRoute", "GRPCRoute", "TCPRoute", "TLSRoute", "UDPRoute"]
+                },
+                "annotations": {
+                    "type": "object"
+                },
+                "labels": {
+                    "type": "object"
+                },
+                "hostnames": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Hostnames for the HTTPRoute"
+                },
+                "parentRefs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "namespace": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "description": "Parent gateway references"
+                },
+                "matches": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "Path matching rules"
+                },
+                "filters": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "Filters to apply to requests"
+                },
+                "additionalRules": {
+                    "type": "array",
+                    "items": {
+                        "type": "object"
+                    },
+                    "description": "Additional custom rules"
+                },
+                "securityPolicies": {
+                    "type": "object",
+                    "description": "Security policies to attach to the HTTPRoute"
                 }
             }
         },
