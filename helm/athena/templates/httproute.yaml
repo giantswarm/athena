@@ -1,0 +1,64 @@
+{{- if .Values.route.enabled -}}
+{{- $route := .Values.route }}
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: {{ $route.kind | default "HTTPRoute" }}
+metadata:
+  name: {{ $route.name | default .Values.name }}
+  namespace: {{ $.Release.Namespace }}
+  labels:
+    {{- include "athena.labels.common" $ | nindent 4 }}
+    {{- with $route.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with $route.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with $route.parentRefs }}
+  parentRefs:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  {{- with $route.hostnames }}
+  hostnames:
+    {{- tpl (toYaml .) $ | nindent 4 }}
+  {{- end }}
+  rules:
+    {{- if $route.additionalRules }}
+    {{- tpl (toYaml $route.additionalRules) $ | nindent 4 }}
+    {{- end }}
+    - backendRefs:
+        - name: {{ .Values.name }}
+          port: 8000
+      {{- with $route.filters }}
+      filters:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with $route.matches }}
+      matches:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- range $name, $policy := $route.securityPolicies }}
+---
+apiVersion: gateway.envoyproxy.io/v1alpha1
+kind: SecurityPolicy
+metadata:
+  name: {{ $policy.name }}
+  labels:
+    {{- include "athena.labels.common" $ | nindent 4 }}
+    {{- with $policy.labels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+  {{- with $policy.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  targetRefs:
+    - group: gateway.networking.k8s.io
+      kind: {{ $route.kind | default "HTTPRoute" }}
+      name: {{ $route.name | default $.Values.name }}
+  {{- toYaml (dict $name $policy.spec) | nindent 2 }}
+{{- end }}
+{{- end }}
