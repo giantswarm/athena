@@ -23,6 +23,8 @@ ingress:
 route:
   # -- Enable the HTTPRoute resource for Gateway API
   enabled: false
+  # -- Name of the HTTPRoute resource
+  name: athena
   # -- Set the route kind
   # Valid options are GRPCRoute, HTTPRoute, TCPRoute, TLSRoute, UDPRoute
   kind: HTTPRoute
@@ -37,6 +39,7 @@ route:
   parentRefs: []
   # - name: giantswarm-default
   #   namespace: envoy-gateway-system
+  #   sectionName: https
 
   # -- Path matching rules
   matches:
@@ -50,13 +53,12 @@ route:
   # -- Additional custom rules that can be added to the route
   additionalRules: []
 
-  # -- Security policies to attach to the HTTPRoute
-  securityPolicies: {}
-  # basicAuth:
-  #   name: athena-basic-auth
-  #   spec:
-  #     users:
-  #       name: basic-auth-secret
+  # -- Security policy configuration for authentication/authorization
+  securityPolicy:
+    enabled: false
+    # basicAuth:
+    #   users:
+    #     name: <secret_name>
 
 kubernetes:
   caPem: ""

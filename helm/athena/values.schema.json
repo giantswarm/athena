@@ -94,6 +94,10 @@
                     "type": "boolean",
                     "description": "Enable the HTTPRoute resource for Gateway API"
                 },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the HTTPRoute resource"
+                },
                 "kind": {
                     "type": "string",
                     "description": "Route kind (HTTPRoute, GRPCRoute, TCPRoute, TLSRoute, UDPRoute)",
@@ -122,6 +126,9 @@
                             },
                             "namespace": {
                                 "type": "string"
+                            },
+                            "sectionName": {
+                                "type": "string"
                             }
                         }
                     },
@@ -148,9 +155,45 @@
                     },
                     "description": "Additional custom rules"
                 },
-                "securityPolicies": {
+                "securityPolicy": {
                     "type": "object",
-                    "description": "Security policies to attach to the HTTPRoute"
+                    "description": "Security policy configuration for authentication/authorization",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean",
+                            "description": "Enable the SecurityPolicy resource"
+                        },
+                        "annotations": {
+                            "type": "object"
+                        },
+                        "labels": {
+                            "type": "object"
+                        },
+                        "basicAuth": {
+                            "type": "object",
+                            "description": "Basic authentication configuration"
+                        },
+                        "cors": {
+                            "type": "object",
+                            "description": "CORS configuration"
+                        },
+                        "jwt": {
+                            "type": "object",
+                            "description": "JWT authentication configuration"
+                        },
+                        "oidc": {
+                            "type": "object",
+                            "description": "OIDC authentication configuration"
+                        },
+                        "extAuth": {
+                            "type": "object",
+                            "description": "External authentication configuration"
+                        },
+                        "authorization": {
+                            "type": "object",
+                            "description": "Authorization configuration"
+                        }
+                    }
                 }
             }
         },
