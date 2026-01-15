@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add Gateway API support with HTTPRoute template (`.Values.route`).
+- Add support for SecurityPolicy resources for authentication via Envoy Gateway.
+
+### Changed
+
+- Make Ingress resource conditional with `.Values.ingress.enabled` (defaults to `true` for backwards compatibility).
+
 ## [1.14.1] - 2025-10-08
 
 ### Removed
