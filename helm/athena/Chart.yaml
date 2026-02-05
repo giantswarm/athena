@@ -3,8 +3,8 @@ name: athena
 description: A service providing non-sensitive information about your cluster to clients
 icon: https://s.giantswarm.io/app-icons/athena/1/light.svg
 home: https://github.com/giantswarm/athena
-version: 1.15.1
-appVersion: 1.15.1
+version: 1.15.2
+appVersion: 1.15.2
 annotations:
   application.giantswarm.io/team: shield
   application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/README.md
