@@ -41,7 +41,7 @@ spec:
         {{- end }}
       containers:
       - name: {{ .Values.image.name }}
-        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
+        image: "{{ .Values.registry.domain }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
         imagePullPolicy: IfNotPresent
         env:
         - name: ATHENA_KUBERNETES_CACERT
