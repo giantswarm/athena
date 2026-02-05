@@ -10,3 +10,5 @@ annotations:
   application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/README.md
   application.giantswarm.io/values-schema: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/helm/athena/values.schema.json
   config.giantswarm.io/version: 1.x.x
+  io.giantswarm.application.audience: all
+  io.giantswarm.application.managed: "true"
