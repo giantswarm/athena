@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add `io.giantswarm.application.audience` and `io.giantswarm.application.managed` chart annotations for Backstage visibility.
 
+### Fixed
+
+- Remove duplicate label `giantswarm.io/service-type` from the `ClusterRole` and `ClusterRoleBinding`
+  named `{{ .Values.name }}` as the same value is defined in `athena.labels.common`.
+- Fix `.image.tag` as empty default. Fall back to `.Chart.AppVersion` if `.Values.image.tag` is not set.
+  Can be used to override the image tag and aligns with our practices in other charts.
+
 ## [1.15.1] - 2026-02-05
 
 ### Changed
