@@ -4,7 +4,7 @@ description: A service providing non-sensitive information about your cluster to
 icon: https://s.giantswarm.io/app-icons/athena/1/light.svg
 home: https://github.com/giantswarm/athena
 version: [[.Version]]
-appVersion: 1.15.0
+appVersion: 1.15.1
 annotations:
   application.giantswarm.io/team: shield
   application.giantswarm.io/readme: https://raw.githubusercontent.com/giantswarm/athena/v[[ .Version ]]/README.md
