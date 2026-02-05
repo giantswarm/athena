@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `io.giantswarm.application.audience` and `io.giantswarm.application.managed` chart annotations for Backstage visibility.
+
 ### Fixed
 
 - Remove duplicate label `giantswarm.io/service-type` from the `ClusterRole` and `ClusterRoleBinding`
