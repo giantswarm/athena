@@ -3,13 +3,13 @@ module github.com/giantswarm/athena
 go 1.25.0
 
 require (
-	github.com/99designs/gqlgen v0.17.89
+	github.com/99designs/gqlgen v0.17.90
 	github.com/giantswarm/microerror v0.4.1
 	github.com/google/go-cmp v0.7.0
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	github.com/vektah/gqlparser/v2 v2.5.32
-	go.uber.org/zap v1.27.1
+	github.com/vektah/gqlparser/v2 v2.5.33
+	go.uber.org/zap v1.28.0
 )
 
 require (
@@ -34,6 +34,6 @@ require (
 	golang.org/x/mod v0.33.0 // indirect
 	golang.org/x/sync v0.20.0 // indirect
 	golang.org/x/sys v0.42.0 // indirect
-	golang.org/x/text v0.34.0 // indirect
+	golang.org/x/text v0.35.0 // indirect
 	golang.org/x/tools v0.42.0 // indirect
 )
