@@ -1,5 +1,4 @@
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/giantswarm/athena/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/giantswarm/athena/tree/main)
-[![Docker Repository on Quay](https://quay.io/repository/giantswarm/athena/status?token=789fdfa0-2068-473d-9ab6-7bde4aaf46dc "Docker Repository on Quay")](https://quay.io/repository/giantswarm/athena)
 
 # Athena
 
@@ -11,7 +10,7 @@ Athena is typically running in every Giant Swarm management cluster, but is also
 
 If [Dex](https://github.com/giantswarm/dex-app) is already configured in the workload cluster, Athena can be used to provide OIDC access information to [kubectl gs](https://github.com/giantswarm/kubectl-gs) for easy login via SSO.
 
-The app is installed in workload clusters, via our [app platform](https://docs.giantswarm.io/app-platform/).
+The app is installed in workload clusters, via our [app platform](https://docs.giantswarm.io/tutorials/fleet-management/app-platform/).
 
 Other than the app itself, you will need to provide a `values.yaml` configuration.
 
