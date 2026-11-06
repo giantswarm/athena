@@ -3,17 +3,17 @@ module github.com/giantswarm/athena
 go 1.27.1
 
 require (
-	github.com/99designs/gqlgen v0.17.95
+	github.com/99designs/gqlgen v0.17.98
 	github.com/giantswarm/microerror v0.4.1
 	github.com/google/go-cmp v0.7.0
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	github.com/vektah/gqlparser/v2 v2.5.62
+	github.com/vektah/gqlparser/v2 v2.5.64
 	go.uber.org/zap v1.28.0
 )
 
 require (
-	github.com/agnivade/levenshtein v1.2.1 // indirect
+	github.com/agnivade/levenshtein v1.2.2 // indirect
 	github.com/coder/websocket v1.8.15 // indirect
 	github.com/fsnotify/fsnotify v1.10.1 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
