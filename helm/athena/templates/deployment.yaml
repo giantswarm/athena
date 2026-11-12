@@ -92,6 +92,9 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 1
+      {{- with include "athena.podScheduling" . }}
+      {{- . | nindent 6 }}
+      {{- end }}
       serviceAccountName: {{ .Values.name }}
       affinity:
         podAntiAffinity:
