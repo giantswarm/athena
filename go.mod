@@ -2,6 +2,8 @@ module github.com/giantswarm/athena
 
 go 1.27.1
 
+toolchain go1.27.4
+
 require (
 	github.com/99designs/gqlgen v0.17.98
 	github.com/giantswarm/microerror v0.4.1
