@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Bump `go` to `v1.27.1` and update dependencies.
+- Bump `github.com/99designs/gqlgen` to `v0.17.98` and `github.com/vektah/gqlparser/v2` to `v2.5.64`, and regenerate the GraphQL code.
 
 ## [1.15.2] - 2026-02-05
 
