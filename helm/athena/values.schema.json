@@ -261,6 +261,10 @@
                 }
             }
         },
+        "replicas": {
+            "type": "integer",
+            "minimum": 0
+        },
         "security": {
             "type": "object",
             "properties": {

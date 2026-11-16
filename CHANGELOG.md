@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Add `replicas` value to set the number of Deployment replicas.
+
 ## [1.16.0] - 2026-11-13
 
 ### Added

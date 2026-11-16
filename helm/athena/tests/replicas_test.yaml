@@ -1,0 +1,16 @@
+suite: deployment replicas
+templates:
+  - deployment.yaml
+tests:
+  - it: keeps 3 replicas by default
+    asserts:
+      - equal:
+          path: spec.replicas
+          value: 3
+  - it: uses the replicas value
+    set:
+      replicas: 1
+    asserts:
+      - equal:
+          path: spec.replicas
+          value: 1

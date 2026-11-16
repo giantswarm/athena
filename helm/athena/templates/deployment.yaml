@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "athena.labels.common" . | nindent 4 }}
 spec:
-  replicas: 3
+  replicas: {{ .Values.replicas }}
   revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
