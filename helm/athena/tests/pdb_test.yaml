@@ -1,0 +1,19 @@
+suite: pod disruption budget
+templates:
+  - pdb.yaml
+capabilities:
+  apiVersions:
+    - policy/v1/PodDisruptionBudget
+tests:
+  - it: renders the PodDisruptionBudget by default
+    asserts:
+      - hasDocuments:
+          count: 1
+      - isKind:
+          of: PodDisruptionBudget
+  - it: renders no PodDisruptionBudget with one replica
+    set:
+      replicas: 1
+    asserts:
+      - hasDocuments:
+          count: 0
